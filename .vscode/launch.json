@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CamelCaseNaming",
+            "request": "launch",
+            "mainClass": "CamelCaseNaming",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "SimpleCalculator",
             "request": "launch",
             "mainClass": "Sirikhojornsombut.Jedsada.lab2.SimpleCalculator",
