@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SimpleCalculator",
+            "request": "launch",
+            "mainClass": "Sirikhojornsombut.Jedsada.lab2.SimpleCalculator",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
+            "name": "PrimitiveDataType",
+            "request": "launch",
+            "mainClass": "Sirikhojornsombut.Jedsada.lab2.PrimitiveDataType",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "PrimitiveDataType",
             "request": "launch",
             "mainClass": "PrimitiveDataType",
