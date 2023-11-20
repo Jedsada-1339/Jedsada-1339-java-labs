@@ -1,5 +1,16 @@
 package Sirikhojornsombut.Jedsada.lab2;
-
+/**
+ * The Patient Program:
+ * This program accepts three arguments
+ * and displays patient information.
+ * The output should be
+ * Patient's name : cpatient_name>. 
+ * Nationality : <patient_age>.
+ * Gender : <patient_genden> .
+ * Author: Jedsada Sirikhojornsombut
+ * ID:663040133-9
+ * sec 1
+ */
 public class patient {
     public static void main(String[] args) {
         String name =  args[0];
