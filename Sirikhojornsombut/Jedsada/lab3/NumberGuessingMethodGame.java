@@ -32,7 +32,7 @@ public class NumberGuessingMethodGame {
 
 
             if (guess == answer) {
-                System.out.println("Congratulations! You guessed the correct numbers.");
+                System.out.println("Congratulations! You guessed the correct number.");
                 break;
             } else if (guess < 1 || guess > 20) {
                 System.out.println("Enter an integer between 1 and 20: ");
