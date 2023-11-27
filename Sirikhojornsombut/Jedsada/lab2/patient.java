@@ -1,4 +1,4 @@
-package Sirikhojornsombut.Jedsada.lab2;
+package sirikhojornsombut.jedsada.lab2;
 
 /**
  * The Patient Program:

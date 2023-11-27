@@ -1,4 +1,4 @@
-package Sirikhojornsombut.Jedsada.lab3;
+package sirikhojornsombut.jedsada.lab3;
 
 import java.util.Scanner;
 
