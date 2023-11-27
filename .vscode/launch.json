@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ConfigurableNumberGuessingGame",
+            "request": "launch",
+            "mainClass": "Sirikhojornsombut.Jedsada.lab3.ConfigurableNumberGuessingGame",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
+            "name": "NumberGuessingMethodGame",
+            "request": "launch",
+            "mainClass": "Sirikhojornsombut.Jedsada.lab3.NumberGuessingMethodGame",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
+            "name": "NumberGuessingGame",
+            "request": "launch",
+            "mainClass": "Sirikhojornsombut.Jedsada.lab3.NumberGuessingGame",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "CamelCaseNaming",
             "request": "launch",
             "mainClass": "CamelCaseNaming",

@@ -1,6 +1,5 @@
 package Sirikhojornsombut.Jedsada.lab3;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class NumberGuessingGame {
@@ -9,9 +8,14 @@ public class NumberGuessingGame {
     }
 
     private static void playGame() {
+        final int min = 1;
+        final int max = 20;
+
+
         System.out.println("Welcome to a number guessing game!");
-        Random random = new Random();
-        int answer = random.nextInt(20) + 1;
+        int answer = (min + (int)(Math.random() * ((max - min) + 1)));
+
+        System.out.println("Answer: " + answer);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -20,6 +24,8 @@ public class NumberGuessingGame {
          */
         int numberOfTries = 0;
         final int maxTries = 5;
+        
+        int check = 0;
 
 
         /*
@@ -34,7 +40,10 @@ public class NumberGuessingGame {
              */
             if (guess == answer) {
                 System.out.println("Congratulations!.");
+                numberOfTries++;
+                check++;
                 break;
+                
             } else if (guess < 1 || guess > 20) {
                 System.out.println("Enter an integer between 1 and 20: ");
             } else {
@@ -49,8 +58,19 @@ public class NumberGuessingGame {
         }
         
 
-        System.out.println("You have tried " + numberOfTries + " times.");
+        if (check ==0){
+            System.out.println("You have tried " + numberOfTries + " times. "+"You ran out of guesses");
+            System.out.println("The answer is "+ answer);
+        }else{
+            if (numberOfTries == 1){
+            System.out.println("You have tried " + numberOfTries + " time.");
+            } else{
+            System.out.println("You have tried " + numberOfTries + " times.");
+            }
+        }
+
 
         scanner.close();
+
     }
 }

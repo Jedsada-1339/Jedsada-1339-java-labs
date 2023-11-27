@@ -1,15 +1,26 @@
 package Sirikhojornsombut.Jedsada.lab3;
 
-
 import java.util.Scanner;
 
-public class NumberGuessingMethodGame {
-        static final int min = 1;
-        static final int max = 20;
-        static int answer;
+public class ConfigurableNumberGuessingGame {
+        static int answer, min,max,numberOfTries,maxTries;
+        static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
+        configure();
         genAnswer();
         playGame(); 
+    }
+
+    private static void configure(){
+        System.out.print("Enter the min value:");
+        int minin = input.nextInt();
+        min += minin;
+        System.out.print("Enter the max value:");
+        int maxin = input.nextInt();
+        max += maxin;
+        System.out.print("Enter the maximum number of tries:");
+        int numberOfTriesin = input.nextInt();
+        numberOfTries += numberOfTriesin;
     }
 
     private static void genAnswer(){
@@ -37,7 +48,7 @@ public class NumberGuessingMethodGame {
          * ตัว loop ถาม User
          */
         while (numberOfTries < maxTries) {
-            System.out.print("Enter an integer between 1 and 20: ");
+            System.out.print("Enter an integer between "+ min +" and " + max + ":");
             int guess = scanner.nextInt();
 
             /*
@@ -49,7 +60,7 @@ public class NumberGuessingMethodGame {
                 check++;
                 break;
             } else if (guess < 1 || guess > 20) {
-                System.out.println("Enter an integer between 1 and 20: ");
+                System.out.println("Enter an integer between "+ min +" and " + max + ":");
             } else {
                 if (guess < answer) {
                     System.out.println("Try a higher number!");
