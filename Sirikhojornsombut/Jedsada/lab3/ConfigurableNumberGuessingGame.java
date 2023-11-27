@@ -11,6 +11,8 @@ public class ConfigurableNumberGuessingGame {
         playGame(); 
     }
 
+
+    /*ฟังชั่นแก้ไข้ค่าภายในตัวเกม */
     private static void configure(){
         System.out.print("Enter the min value:");
         int minin = input.nextInt();
@@ -31,8 +33,6 @@ public class ConfigurableNumberGuessingGame {
     private static void playGame() {
 
         System.out.println("Welcome to a number guessing game!");
-
-        System.out.println("Answer: " + answer);
 
         Scanner scanner = new Scanner(System.in);
 

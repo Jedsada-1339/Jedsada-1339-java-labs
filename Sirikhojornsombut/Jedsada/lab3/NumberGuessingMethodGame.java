@@ -12,16 +12,15 @@ public class NumberGuessingMethodGame {
         playGame(); 
     }
 
+    /*ฟังชั่นสร้างตัวคำตอบ */
     private static void genAnswer(){
         answer = (min + (int)(Math.random() * ((max - min) + 1)));
     }
 
-
+    /*ฟังชั่นเล่นเกม */
     private static void playGame() {
 
         System.out.println("Welcome to a number guessing game!");
-
-        System.out.println("Answer: " + answer);
 
         Scanner scanner = new Scanner(System.in);
 

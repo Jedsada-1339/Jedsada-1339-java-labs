@@ -7,6 +7,7 @@ public class NumberGuessingGame {
         playGame(); 
     }
 
+    /*ฟังชั่นเล่นเกม */
     private static void playGame() {
         final int min = 1;
         final int max = 20;
@@ -15,7 +16,6 @@ public class NumberGuessingGame {
         System.out.println("Welcome to a number guessing game!");
         int answer = (min + (int)(Math.random() * ((max - min) + 1)));
 
-        System.out.println("Answer: " + answer);
 
         Scanner scanner = new Scanner(System.in);
 
