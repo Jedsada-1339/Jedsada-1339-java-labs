@@ -8,7 +8,7 @@ public class ConfigurableNumberGuessingGame {
     public static void main(String[] args) {
         configure();
         genAnswer();
-        playGame(); 
+        playGame();
     }
 
 
