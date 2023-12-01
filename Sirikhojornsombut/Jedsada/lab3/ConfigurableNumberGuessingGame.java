@@ -22,7 +22,7 @@ public class ConfigurableNumberGuessingGame {
         max += maxin;
         System.out.print("Enter the maximum number of tries:");
         int numberOfTriesin = input.nextInt();
-        numberOfTries += numberOfTriesin;
+        maxTries += numberOfTriesin;
     }
 
     private static void genAnswer(){
@@ -35,12 +35,6 @@ public class ConfigurableNumberGuessingGame {
         System.out.println("Welcome to a number guessing game!");
 
         Scanner scanner = new Scanner(System.in);
-
-        /*
-         * จำนวนที่สามารถลองเดาตัวเลขได้
-         */
-        int numberOfTries = 0;
-        final int maxTries = 5;
         
         int check = 0;
 
