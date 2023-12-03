@@ -72,6 +72,7 @@ public class NumberGuessingGames {
 
             System.out.print("want to play again? (Y or y):");
             playAgain = scanner.next().toLowerCase();
+            genAnswer();
 
         } while (playAgain.equals("y"));
 
