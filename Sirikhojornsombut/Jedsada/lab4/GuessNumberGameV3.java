@@ -83,6 +83,11 @@ public class GuessNumberGameV3 {
 
             displayReviewOptions();
 
+            if (check == 0) {
+                System.out.println("Game log:"+"Answer: "+answer+", Guesses: "+numberOfTries+", Win: ture");
+            } else {
+                System.out.println("Game log: "+"Answer: "+answer+", Guesses: "+numberOfTries+", Win: false");
+            }
             System.out.print("Want to play again? (Y or y):");
             playAgain = input.next().toLowerCase();
             check = 0;
