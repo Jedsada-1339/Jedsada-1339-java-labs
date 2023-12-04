@@ -105,7 +105,7 @@ public class GuessNumberGameV3 {
     }
 
     private static void displayReviewOptions() {
-        System.out.println("Enter 'a' to list all guesses, 'g' for specific guess, or any other key to quit: ");
+        System.out.print("Enter 'a' to list all guesses, 'g' for specific guess, or any other key to quit: ");
         char option = input.next().charAt(0);
 
         switch (option) {
