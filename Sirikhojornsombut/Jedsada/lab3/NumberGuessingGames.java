@@ -41,13 +41,16 @@ public class NumberGuessingGames {
                 System.out.print("Enter an integer between " + min + " and " + max + ":");
                 int guess = scanner.nextInt();
 
+                while (guess < min || guess > max) {
+                    System.out.print("Your guess should be in " + min + " and " + max + ":");
+                    guess = input.nextInt();
+                }
+
                 if (guess == answer) {
                     System.out.println("Congratulations!.");
                     numberOfTries++;
                     check++;
                     break;
-                } else if (guess < min || guess > max) {
-                    System.out.println("Enter an integer between " + min + " and " + max + ":");
                 } else {
                     if (guess < answer) {
                         System.out.println("Try a higher number!");
