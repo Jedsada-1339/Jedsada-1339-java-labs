@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GuessNumberGameV3",
+            "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab4.GuessNumberGameV3",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "GuessNumberGamesV2",
             "request": "launch",
             "mainClass": "sirikhojornsombut.jedsada.lab4.GuessNumberGamesV2",
