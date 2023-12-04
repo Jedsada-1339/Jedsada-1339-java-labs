@@ -3,25 +3,57 @@ package sirikhojornsombut.jedsada.lab4;
 import java.util.Scanner;
 
 public class GuessNumberGameV3 {
-    static int answer, min, max, maxTries;
+    static int answer, min, max, maxAttempts;
     static Scanner input = new Scanner(System.in);
     static int[] guesses;
     static int validGuessCount;
+    static int totalGamesPlayed = 0;
+    static int totalGamesWon = 0;
+    static int totalGuesses = 0;
+    static int highScore = Integer.MAX_VALUE; // Initialize with a large value
 
     public static void main(String[] args) {
         configure();
-        genAnswer();
-        playGame();
+
+        do {
+            genAnswer();
+            playGame();
+            updateStatistics();
+
+            System.out.print("Want to play again? (Y or y): ");
+        } while (input.next().equalsIgnoreCase("y"));
+
+        displayStatistics();
+        input.close();
     }
 
     private static void configure() {
-        System.out.print("Enter the min value:");
+        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.print("Enter the min value: ");
         min = input.nextInt();
-        System.out.print("Enter the max value:");
+        System.out.print("Enter the max value: ");
         max = input.nextInt();
-        System.out.print("Enter the maximum number of tries:");
-        maxTries = input.nextInt();
-        guesses = new int[maxTries];
+
+        // Check if min is less than max
+        while (min >= max) {
+            System.out.println("Invalid input. Min must be less than max.");
+            System.out.print("Enter the min value: ");
+            min = input.nextInt();
+            System.out.print("Enter the max value: ");
+            max = input.nextInt();
+        }
+
+        System.out.print("Enter the maximum number of tries: ");
+        maxAttempts = input.nextInt();
+
+        // Check if maxAttempts is greater than 0
+        while (maxAttempts <= 0) {
+            System.out.println("Invalid input. Number of tries must be greater than 0.");
+            System.out.print("Enter the maximum number of tries: ");
+            maxAttempts = input.nextInt();
+        }
+
+        guesses = new int[maxAttempts];
         validGuessCount = 0;
     }
 
@@ -30,117 +62,59 @@ public class GuessNumberGameV3 {
     }
 
     private static void playGame() {
-        String playAgain;
-        int check = 0;
-        int Total_game_played = 0;
-        int Total_game_win = 0;
-        int numberOfTriescal = 0;
+        int numberOfTries = 0;
 
-        do {
-            System.out.println("Welcome to a number guessing game!");
+        System.out.println("Try to guess the number between " + min + " and " + max + ".");
 
-            int numberOfTries = 0;
+        while (numberOfTries < maxAttempts) {
+            System.out.print("Enter your guess: ");
+            int guess = input.nextInt();
 
-            while (numberOfTries < maxTries) {
-                System.out.print("Enter an integer between " + min + " and " + max + ":");
-                int guess = input.nextInt();
+            guesses[numberOfTries] = guess;
+            validGuessCount++;
 
-                guesses[numberOfTries] = guess;
-                validGuessCount++;
-
-                while (guess < min || guess > max) {
-                    System.out.print("Your guess should be in " + min + " and " + max + ":");
-                    guess = input.nextInt();
-                }
-
-
-                if (guess == answer) {
-                    System.out.println("Congratulations!");
-                    numberOfTries++;
-                    numberOfTriescal++;
-                    Total_game_win++;
-                    check++;
-                    break;
-                } else {
-                    if (guess < answer) {
-                        System.out.println("Try a higher number!");
-                    } else {
-                        System.out.println("Try a lower number!");
-                    }
-                }
-                numberOfTries++;
-                numberOfTriescal++;
+            // Check if the guess is within the valid range
+            while (guess < min || guess > max) {
+                System.out.print("Your guess should be in the range " + min + " and " + max + ": ");
+                guess = input.nextInt();
             }
 
-            if (check == 0) {
-                System.out.println("You ran out of guesses"+"The answer is " + answer);
-                Total_game_played++;
+            totalGuesses++;
+
+            if (guess == answer) {
+                System.out.println("Congratulations! You guessed the correct number.");
+                totalGamesWon++;
+                break;
             } else {
-                if (numberOfTries == 1) {
-                    System.out.println("You have tried " + numberOfTries + " time.");
+                if (guess < answer) {
+                    System.out.println("Try a higher number!");
                 } else {
-                    System.out.println("You have tried " + numberOfTries + " times.");
+                    System.out.println("Try a lower number!");
                 }
-                Total_game_played++;
             }
 
-            displayReviewOptions();
+            numberOfTries++;
+        }
 
-            if (check == 0) {
-                System.out.println("Game log:"+"Answer: "+answer+", Guesses: "+numberOfTries+", Win: ture");
-            } else {
-                System.out.println("Game log: "+"Answer: "+answer+", Guesses: "+numberOfTries+", Win: false");
-            }
-            System.out.print("Want to play again? (Y or y):");
-            playAgain = input.next().toLowerCase();
-            check = 0;
-            genAnswer();
-
-        } while (playAgain.equals("y"));
-
-        float Win_rate = Total_game_win/Total_game_played;
-        System.out.println("----Game Statistics----");
-        System.out.println("Total game played: "+Total_game_played);
-        System.out.println("Total win: "+Total_game_win);
-        System.out.println("Win rate: "+((Win_rate)*100)+" %");
-        System.out.println("Average guess per game: "+ (numberOfTriescal)/Total_game_played);
-        input.close();
-    }
-
-    private static void displayReviewOptions() {
-        System.out.print("Enter 'a' to list all guesses, 'g' for specific guess, or any other key to quit: ");
-        char option = input.next().charAt(0);
-
-        switch (option) {
-            case 'a':
-                displayAllGuesses();
-                break;
-            case 'g':
-                viewSpecificGuess();
-                break;
-            default:
-                break;
+        if (numberOfTries == maxAttempts) {
+            System.out.println("Sorry, you ran out of guesses. The correct answer was " + answer);
         }
     }
 
-    private static void displayAllGuesses() {
-        System.out.println("All Guesses:");
-        for (int i = 0; i < validGuessCount; i++) {
-            System.out.print(guesses[i]+" ");
+    private static void updateStatistics() {
+        totalGamesPlayed++;
+
+        if (validGuessCount < highScore) {
+            highScore = validGuessCount;
         }
-        System.out.println("");
-        displayReviewOptions();
     }
 
-    private static void viewSpecificGuess() {
-        System.out.print("Enter the guess number to view: ");
-        int guessNumber = input.nextInt();
-
-        if (guessNumber >= 1 && guessNumber <= validGuessCount) {
-            System.out.println("Guess " + guessNumber + ": " + guesses[guessNumber - 1]);
-        } else {
-            System.out.println("Invalid guess number.");
-        }
-        displayReviewOptions();
+    private static void displayStatistics() {
+        System.out.println("---- Game Statistics ----");
+        System.out.println("Total games played: " + totalGamesPlayed);
+        System.out.println("Total games won: " + totalGamesWon);
+        System.out.println("Win rate: " + ((float) totalGamesWon / totalGamesPlayed) * 100 + "%");
+        System.out.println("Average guesses per game: " + (float) totalGuesses / totalGamesPlayed);
+        System.out.println("High score: " + (highScore == Integer.MAX_VALUE ? "N/A" : highScore));
     }
 }
