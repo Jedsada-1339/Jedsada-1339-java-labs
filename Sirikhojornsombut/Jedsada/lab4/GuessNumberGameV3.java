@@ -100,7 +100,7 @@ public class GuessNumberGameV3 {
         System.out.println("Total game played: "+Total_game_played);
         System.out.println("Total win: "+Total_game_win);
         System.out.println("Win rate: "+((Win_rate)*100)+" %");
-        System.out.println("Average guess per game: "+ (numberOfTriescal)%Total_game_played);
+        System.out.println("Average guess per game: "+ (numberOfTriescal)/Total_game_played);
         input.close();
     }
 
