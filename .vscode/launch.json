@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MatrixOperations",
+            "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab4.MatrixOperations",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "MatrixDisplayOptions",
             "request": "launch",
             "mainClass": "sirikhojornsombut.jedsada.lab4.MatrixDisplayOptions",
