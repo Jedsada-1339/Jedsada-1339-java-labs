@@ -43,11 +43,16 @@ public class GuessNumberGameVer1 {
         Scanner scanner = new Scanner(System.in);
         int numberOfTries = 0;
 
-        System.out.println("Guess a number between " + minNum + " and " + maxNum + ".");
+        
 
         while (numberOfTries < maxTries) {
-            System.out.print("Enter your guess: ");
+            System.out.print("Enter an integer between " + minNum + " and " + maxNum + ":");
             int guess = scanner.nextInt();
+
+            while (guess < minNum || guess > maxNum) {
+                System.out.print("Your guess should be in " + minNum + " and " + maxNum + ":");
+                guess = scanner.nextInt();
+            }
 
             if (guess == correctNum) {
                 System.out.println("Congratulations! You guessed the correct number.");
