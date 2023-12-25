@@ -111,21 +111,7 @@ public class GuessNumberGameVer1 {
         return "GuessNumberGameVer1 minNum= " + minNum + " maxNum= " + maxNum +  " maxTries=" + maxTries ;
     }
 
-    public static void testPart1() {
-        GuessNumberGameVer1 gng1 = new GuessNumberGameVer1();
-        gng1.playGame();
-        System.out.println("There are " + GuessNumberGameVer1.getNumOfGames() + " games");
-        gng1.setMinNum(2);
-        gng1.setMaxNum(5);
-        gng1.setMaxTries(2);
-        System.out.println(
-                "Min = " + gng1.getMinNum() + " Max = " + gng1.getMaxNum() + " Max tries = " + gng1.getMaxTries());
-        gng1.playGame();
-        GuessNumberGameVer1 gng2 = new GuessNumberGameVer1();
-        System.out.println("Min = " + gng2.getMinNum() + " Max = " + gng2.getMaxNum() + " Max tries = " + gng2.getMaxTries());
-        System.out.println("There are " + GuessNumberGameVer1.getNumOfGames() + " games");
-    }
-
+    //this fuction from lab class
     public static void testConstructors() {
         GuessNumberGameVer1 gng1 = new GuessNumberGameVer1();
         GuessNumberGameVer1 gng2 = new GuessNumberGameVer1(5, 10);
