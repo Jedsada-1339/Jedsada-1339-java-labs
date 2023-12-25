@@ -9,7 +9,10 @@ public class GuessNumberGameVer1 {
     protected int maxTries;
     protected static int numOfGames = 0;
 
-    // Constructors for Part 1
+    public static void main(String[] args) {
+        testConstructors();
+    }
+
     public GuessNumberGameVer1() {
         this.minNum = 1;
         this.maxNum = 10;
@@ -50,7 +53,11 @@ public class GuessNumberGameVer1 {
                 System.out.println("Congratulations! You guessed the correct number.");
                 break;
             } else {
-                System.out.println("Incorrect guess. Try again!");
+                if (guess < correctNum) {
+                    System.out.println("Try a higher number!");
+                } else {
+                    System.out.println("Try a lower number!");
+                }
             }
 
             numberOfTries++;
@@ -60,7 +67,7 @@ public class GuessNumberGameVer1 {
             System.out.println("Sorry, you ran out of guesses. The correct answer was " + correctNum);
         }
 
-        scanner.close();
+        //scanner.close();
     }
 
     // Getters and setters for Part 1
@@ -96,7 +103,34 @@ public class GuessNumberGameVer1 {
     // Override toString method for Part 2
     @Override
     public String toString() {
-        return "GuessNumberGameVer1 [minNum=" + minNum + ", maxNum=" + maxNum + ", correctNum=" + correctNum
-                + ", maxTries=" + maxTries + "]";
+        return "GuessNumberGameVer1 minNum= " + minNum + " maxNum= " + maxNum +  " maxTries=" + maxTries ;
+    }
+
+    public static void testPart1() {
+        GuessNumberGameVer1 gng1 = new GuessNumberGameVer1();
+        gng1.playGame();
+        System.out.println("There are " + GuessNumberGameVer1.getNumOfGames() + " games");
+        gng1.setMinNum(2);
+        gng1.setMaxNum(5);
+        gng1.setMaxTries(2);
+        System.out.println(
+                "Min = " + gng1.getMinNum() + " Max = " + gng1.getMaxNum() + " Max tries = " + gng1.getMaxTries());
+        gng1.playGame();
+        GuessNumberGameVer1 gng2 = new GuessNumberGameVer1();
+        System.out.println("Min = " + gng2.getMinNum() + " Max = " + gng2.getMaxNum() + " Max tries = " + gng2.getMaxTries());
+        System.out.println("There are " + GuessNumberGameVer1.getNumOfGames() + " games");
+    }
+
+    public static void testConstructors() {
+        GuessNumberGameVer1 gng1 = new GuessNumberGameVer1();
+        GuessNumberGameVer1 gng2 = new GuessNumberGameVer1(5, 10);
+        GuessNumberGameVer1 gng3 = new GuessNumberGameVer1(10, 20, 5);
+        System.out.println(gng1);
+        gng1.playGame();
+        System.out.println(gng2);
+        gng2.playGame();
+        System.out.println(gng3);
+        gng3.playGame();
+        System.out.println("There are " + GuessNumberGameVer1.getNumOfGames() + " games");
     }
 }
