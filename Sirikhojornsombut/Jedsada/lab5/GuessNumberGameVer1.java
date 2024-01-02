@@ -9,9 +9,6 @@ public class GuessNumberGameVer1 {
     protected int maxTries;
     protected static int numOfGames = 0;
 
-    public static void main(String[] args) {
-        testConstructors();
-    }
 
     public GuessNumberGameVer1() {
         this.minNum = 1;
@@ -111,17 +108,5 @@ public class GuessNumberGameVer1 {
         return "GuessNumberGameVer1 minNum= " + minNum + " maxNum= " + maxNum +  " maxTries=" + maxTries ;
     }
 
-    //this fuction from lab class
-    public static void testConstructors() {
-        GuessNumberGameVer1 gng1 = new GuessNumberGameVer1();
-        GuessNumberGameVer1 gng2 = new GuessNumberGameVer1(5, 10);
-        GuessNumberGameVer1 gng3 = new GuessNumberGameVer1(10, 20, 5);
-        System.out.println(gng1);
-        gng1.playGame();
-        System.out.println(gng2);
-        gng2.playGame();
-        System.out.println(gng3);
-        gng3.playGame();
-        System.out.println("There are " + GuessNumberGameVer1.getNumOfGames() + " games");
-    }
+    //this fuction from lab
 }
