@@ -108,5 +108,4 @@ public class GuessNumberGameVer1 {
         return "GuessNumberGameVer1 minNum= " + minNum + " maxNum= " + maxNum +  " maxTries=" + maxTries ;
     }
 
-    //this fuction from lab
 }

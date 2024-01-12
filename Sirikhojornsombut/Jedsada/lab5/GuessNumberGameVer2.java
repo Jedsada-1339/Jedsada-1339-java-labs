@@ -8,19 +8,19 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
     protected int numGuesses;
 
     public GuessNumberGameVer2() {
-        super(); // Call the default constructor of the superclass
+        super();
         guesses = new int[MAX_GUESSES];
         numGuesses = 0;
     }
 
     public GuessNumberGameVer2(int minNum, int maxNum) {
-        super(minNum, maxNum); // Call the constructor with two parameters of the superclass
+        super(minNum, maxNum);
         guesses = new int[MAX_GUESSES];
         numGuesses = 0;
     }
 
     public GuessNumberGameVer2(int minNum, int maxNum, int maxTries) {
-        super(minNum, maxNum, maxTries); // Call the constructor with three parameters of the superclass
+        super(minNum, maxNum, maxTries);
         guesses = new int[MAX_GUESSES];
         numGuesses = 0;
     }
@@ -29,16 +29,17 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
     public void playGame() {
         Scanner scanner = new Scanner(System.in);
 
-        while (numGuesses < maxTries) {
-            System.out.print("Enter an integer between " + minNum + " and " + maxNum + ": ");
+        while (numGuesses < MAX_GUESSES) {
+            System.out.print("Enter an integer between " + getMinNum() + " and " + getMaxNum() + ":");
             int guess = scanner.nextInt();
 
-            if (guess < minNum || guess > maxNum) {
-                System.out.println("Your guess should be in the range " + minNum + " and " + maxNum + ".");
+            if (guess < getMinNum() || guess > getMaxNum()) {
+                System.out.println("Your guess should be in " + getMinNum() + " and " + getMaxNum() + ".");
                 continue;
             }
 
-            guesses[numGuesses++] = guess;
+            guesses[numGuesses] = guess;
+            numGuesses++;
 
             if (guess == correctNum) {
                 System.out.println("Congratulations! You guessed the correct number.");
@@ -52,30 +53,25 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
             }
         }
 
-        if (numGuesses == maxTries) {
-            System.out.println("Sorry, you ran out of guesses. The correct answer was " + correctNum);
+        if (numGuesses == MAX_GUESSES) {
+            System.out.println("Maximum number of guesses reached. The correct answer was " + correctNum);
         }
 
-        // Close the scanner
-        scanner.close();
+        //scanner.close();
     }
 
-    public void showSpecific() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the position to show: ");
-        int position = scanner.nextInt();
-
+    public void showSpecific(int position) {
         if (position >= 0 && position < numGuesses) {
-            System.out.println("Guess at position " + position + ": " + guesses[position]);
+            System.out.println("Guess at position " + position + ": " + guesses[position-1]);
         } else {
-            System.out.println("Invalid position. Please enter a position between 0 and " + (numGuesses - 1) + ".");
+            System.out.println("Invalid position.");
         }
     }
 
     public void showGuesses() {
         System.out.println("List of guesses:");
         for (int i = 0; i < numGuesses; i++) {
-            System.out.println("Guess " + i + ": " + guesses[i]);
+            System.out.println("Guess at position " + i + ": " + guesses[i]);
         }
     }
 
@@ -83,22 +79,28 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Enter 'q' to quit, 'g' to show specific guess, 'a' to show all guesses:");
+            playGame();
+            System.out.println("Enter 'p' to play, 's' to show specific guess, 'a' to show all guesses, or 'q' to quit:");
             char choice = scanner.next().charAt(0);
 
-            switch (choice) {
-                case 'q':
-                    System.out.println("Quitting the game.");
-                    scanner.close();
-                    return;
-                case 'g':
-                    showSpecific();
+            switch (Character.toLowerCase(choice)) {
+                case 'p':
+                    playGame();
+                    break;
+                case 's':
+                    System.out.print("Enter the position to show: ");
+                    int position = scanner.nextInt();
+                    showSpecific(position);
                     break;
                 case 'a':
                     showGuesses();
                     break;
+                case 'q':
+                    System.out.println("Quitting the game. Goodbye!");
+                    scanner.close();
+                    return;
                 default:
-                    System.out.println("Invalid choice. Please enter 'q', 'g', or 'a'.");
+                    System.out.println("Invalid choice. Try again.");
             }
         }
     }
