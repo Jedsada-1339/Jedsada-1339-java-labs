@@ -25,7 +25,6 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
         numGuesses = 0;
     }
 
-    @Override
     public void playGame() {
         Scanner scanner = new Scanner(System.in);
 
@@ -78,19 +77,17 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
     public void playGames() {
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
             playGame();
-            System.out.println("Enter 'p' to play, 's' to show specific guess, 'a' to show all guesses, or 'q' to quit:");
+            
+            System.out.println("Enter 'g' to show specific guess, 'a' to show all guesses, or 'q' to quit:");
             char choice = scanner.next().charAt(0);
 
             switch (Character.toLowerCase(choice)) {
-                case 'p':
-                    playGame();
-                    break;
-                case 's':
+                case 'g':
                     System.out.print("Enter the position to show: ");
                     int position = scanner.nextInt();
                     showSpecific(position);
+                    playGames();
                     break;
                 case 'a':
                     showGuesses();
@@ -102,6 +99,5 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
                 default:
                     System.out.println("Invalid choice. Try again.");
             }
-        }
     }
 }
