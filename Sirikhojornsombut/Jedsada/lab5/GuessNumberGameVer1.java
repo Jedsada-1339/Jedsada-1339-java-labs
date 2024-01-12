@@ -37,6 +37,7 @@ public class GuessNumberGameVer1 {
 
     // Play game method
     public void playGame() {
+        System.out.println("Welcome to a number guessing game!");
         Scanner scanner = new Scanner(System.in);
         int numberOfTries = 0;
 

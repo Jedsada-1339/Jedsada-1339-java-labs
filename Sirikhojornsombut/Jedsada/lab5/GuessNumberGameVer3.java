@@ -54,34 +54,43 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2 {
         return max;
     }
 
-    public static void main(String[] args) {
-        GuessNumberGameVer3 game = new GuessNumberGameVer3(1, 100, 5);
-        game.playGames();
-
+    public void playGames() {
+        playGame();
         // Test guessAverage(), guessMin(), and guessMax()
         Scanner scanner = new Scanner(System.in);
         char command;
         do {
-            System.out.print("Enter command ('v' for average, 'm' for minimum, 'x' for maximum, 'q' to quit): ");
+            System.out.println("Do you want to play again type 'y' to continue or 'q' to quit");
+            System.out.println("type 'g' to see specific guess,type 'a' to see all guees");
+            System.out.println("type 'v' for average, type 'm' for minimum, type 'x' for maximum");
             command = scanner.next().charAt(0);
 
             switch (Character.toLowerCase(command)) {
+                case 'y':
+                    playGame();
+                    break;
+                case 'g':
+                    showSpecific();
+                    break;
+                case 'a':
+                    showGuesses();
+                    break;
                 case 'v':
-                    System.out.println("Average of guesses: " + game.guessAverage());
+                    System.out.println("Average of guesses: " + guessAverage());
                     break;
                 case 'm':
-                    int min = game.guessMin();
+                    int min = guessMin();
                     System.out.println(min == -1 ? "No guesses yet" : "Minimum guess: " + min);
                     break;
                 case 'x':
-                    int max = game.guessMax();
+                    int max = guessMax();
                     System.out.println(max == -1 ? "No guesses yet" : "Maximum guess: " + max);
                     break;
                 case 'q':
                     System.out.println("Exiting the program. Goodbye!");
                     break;
                 default:
-                    System.out.println("Invalid command. Please enter 'v', 'm', 'x', or 'q'.");
+                    System.out.println("Invalid command.");
             }
 
         } while (Character.toLowerCase(command) != 'q');
@@ -90,14 +99,10 @@ public class GuessNumberGameVer3 extends GuessNumberGameVer2 {
     // Override toString() method for testing
     @Override
     public String toString() {
-        return "GuessNumberGameVer3{" +
+        return "GuessNumberGameVer3 " +
                 "minNum=" + minNum +
                 ", maxNum=" + maxNum +
-                ", maxTries=" + maxTries +
-                ", correctNum=" + correctNum +
-                ", guesses=" + Arrays.toString(guesses) +
-                ", numGuesses=" + numGuesses +
-                '}';
+                ", maxTries=" + maxTries;
     }
 }
 

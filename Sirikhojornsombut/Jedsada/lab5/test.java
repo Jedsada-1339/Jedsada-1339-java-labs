@@ -2,7 +2,8 @@ package sirikhojornsombut.jedsada.lab5;
 
 public class test {
     public static void main(String[] args) {
-        GuessNumberGameVer2 gng = new GuessNumberGameVer2(5, 10, 4);
+        GuessNumberGameVer3 gng = new GuessNumberGameVer3(1, 5, 3);
+        System.out.println(gng);
         gng.playGames();
     }
 }

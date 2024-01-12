@@ -77,18 +77,24 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
         for (int i = 0; i < numGuesses; i++) {
             System.out.print(guesses[i] + " ");
         }
+        System.out.println();
     }
 
     public void playGames() {
+        System.out.println("Welcome to a number guessing game!");
         Scanner scanner = new Scanner(System.in);
         char choice;
 
         do {
             playGame();
-            System.out.print("Do you want to (g)et a specific guess, (a)ll guesses, or (q)uit? ");
+            System.out.println("Do you want to play again type 'y' to continue or 'q' to quit");
+            System.out.println("type 'g' to see specific guess,type 'a' to see all guees");
             choice = scanner.next().charAt(0);
 
             switch (Character.toLowerCase(choice)) {
+                case 'y':
+                    playGame();
+                    break;
                 case 'g':
                     showSpecific();
                     break;
@@ -99,7 +105,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
                     System.out.println("Exiting the game. Goodbye!");
                     break;
                 default:
-                    System.out.println("Invalid choice. Please enter 'g', 'a', or 'q'.");
+                    System.out.println("Invalid choice.");
             }
 
         } while (Character.toLowerCase(choice) != 'q');
