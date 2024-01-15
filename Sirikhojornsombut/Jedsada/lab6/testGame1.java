@@ -1,6 +1,6 @@
 package sirikhojornsombut.jedsada.lab6;
 
-public class test {
+public class testGame1 {
     public static void main(String[] args) {
         GuessNumberGameVer1 game1 = new GuessNumberGameVer1();
         RockPaperScissor game2 = new RockPaperScissor();
