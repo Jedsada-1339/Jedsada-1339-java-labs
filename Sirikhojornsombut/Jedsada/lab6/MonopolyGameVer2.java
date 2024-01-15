@@ -1,6 +1,6 @@
 package sirikhojornsombut.jedsada.lab6;
 
-public class MonopolyGameV2 extends MonopolyGame {
+public class MonopolyGameVer2 extends MonopolyGame {
     
     
     @Override
