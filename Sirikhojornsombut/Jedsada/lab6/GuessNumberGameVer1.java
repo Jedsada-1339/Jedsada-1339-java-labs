@@ -21,7 +21,9 @@ public class GuessNumberGameVer1 extends Game {
     }
 
     public GuessNumberGameVer1(int minNum, int maxNum,int maxTries) {
-        this(minNum, maxNum);
+        this();
+        this.minNum = minNum;
+        this.maxNum = maxNum;
         this.maxTries = maxTries;
     }
 
