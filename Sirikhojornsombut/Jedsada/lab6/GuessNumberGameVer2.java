@@ -19,7 +19,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 implements HasRule{
 
     @Override
     public void playGame(){
-        
+        System.out.println("Playing Guess Number Game Ver 2");
     }
 
     @Override
@@ -30,7 +30,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 implements HasRule{
 
     @Override
     public void gameRule() {
-        System.out.println("Rule 1");
+        System.out.println("Guess Number Game Rule: ...");
     }
     
 }
