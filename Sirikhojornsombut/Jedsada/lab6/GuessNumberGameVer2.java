@@ -1,6 +1,6 @@
 package sirikhojornsombut.jedsada.lab6;
 
-public class GuessNumberGameVer2 extends GuessNumberGameVer1{
+public class GuessNumberGameVer2 extends GuessNumberGameVer1 implements HasRule{
 
     public GuessNumberGameVer2(){
         this.gameName = "GuessNumberGameVer2";
@@ -26,6 +26,11 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1{
     public String toString(){
         return super.toString();
 
+    }
+
+    @Override
+    public void gameRule() {
+        System.out.println("Rule 1");
     }
     
 }

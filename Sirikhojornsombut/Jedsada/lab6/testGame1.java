@@ -5,7 +5,7 @@ public class testGame1 {
         GuessNumberGameVer1 game1 = new GuessNumberGameVer1();
         RockPaperScissor game2 = new RockPaperScissor();
         MonopolyGame game3 =  new MonopolyGame();
-        GuessNumberGameVer1 game4 = new GuessNumberGameVer1(2, 10, 3);
+        GuessNumberGameVer1 game4 = new GuessNumberGameVer1(1, 10, 5);
         RockPaperScissor game5 = new RockPaperScissor("rock", "paper");
         MonopolyGame game6 =  new MonopolyGame(new String[]{"battleship", "wheelbarrow", "iron", "Dog"});
         System.out.println(game1);

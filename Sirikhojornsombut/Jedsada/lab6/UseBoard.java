@@ -1,0 +1,5 @@
+package sirikhojornsombut.jedsada.lab6;
+
+public interface UseBoard {
+    public void setupBoard();
+}
