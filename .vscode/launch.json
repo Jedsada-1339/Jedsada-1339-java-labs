@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "test3",
+            "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab6.test3",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "testGame2",
             "request": "launch",
             "mainClass": "sirikhojornsombut.jedsada.lab6.testGame2",

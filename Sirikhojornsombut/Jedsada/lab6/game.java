@@ -39,7 +39,7 @@ public abstract class Game {
     // toString() method
     @Override
     public String toString() {
-        return "Game [gameName=" + gameName + ", numOfPlayers=" + numOfPlayers + "]";
+        return "[gameName=" + gameName + ", numOfPlayers=" + numOfPlayers + "]";
     }
 }
 
