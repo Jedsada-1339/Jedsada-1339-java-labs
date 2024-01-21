@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestGamesProb2",
+            "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab7.TestGamesProb2",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
+            "name": "TestGamesProb1",
+            "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab7.TestGamesProb1",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "test3",
             "request": "launch",
             "mainClass": "sirikhojornsombut.jedsada.lab6.test3",
