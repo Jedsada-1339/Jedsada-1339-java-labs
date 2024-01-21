@@ -34,7 +34,7 @@ public class PlayerFormV1 extends MySimpleWindow {
         genderGroup.add(maleRadioButton);
         genderGroup.add(femaleRadioButton);
 
-        topPanel.setLayout(new GridLayout(5, 2));
+        topPanel.setLayout(new GridLayout(4, 2));
         topPanel.add(nameLabel);
         topPanel.add(new JTextField(TEXT_FIELD_LENGTH));
         topPanel.add(nationalityLabel);
