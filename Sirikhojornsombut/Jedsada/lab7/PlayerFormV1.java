@@ -19,7 +19,7 @@ public class PlayerFormV1 extends MySimpleWindow {
 
     @Override
     protected void addComponents() {
-        super.addComponents(); // Call the superclass method to include existing components
+        super.addComponents();
 
         topPanel = new JPanel();
         nameLabel = new JLabel("Name:");
@@ -28,7 +28,7 @@ public class PlayerFormV1 extends MySimpleWindow {
 
         maleRadioButton = new JRadioButton("Male");
         femaleRadioButton = new JRadioButton("Female");
-        femaleRadioButton.setSelected(true); // Female selected by default
+        femaleRadioButton.setSelected(true);
 
         ButtonGroup genderGroup = new ButtonGroup();
         genderGroup.add(maleRadioButton);
@@ -42,9 +42,11 @@ public class PlayerFormV1 extends MySimpleWindow {
         topPanel.add(dobLabel);
         topPanel.add(new JTextField(TEXT_FIELD_LENGTH));
         topPanel.add(new JLabel("Gender:"));
-        topPanel.add(maleRadioButton);
-        topPanel.add(new JLabel("")); // Empty space to align with the radio buttons
-        topPanel.add(femaleRadioButton);
+        JPanel genderPanel = new JPanel();
+        genderPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        genderPanel.add(maleRadioButton);
+        genderPanel.add(femaleRadioButton);
+        topPanel.add(genderPanel);
 
         mainPanel.add(topPanel, BorderLayout.CENTER);
     }
@@ -69,6 +71,3 @@ public class PlayerFormV1 extends MySimpleWindow {
         });
     }
 }
-
-
-
