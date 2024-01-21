@@ -3,8 +3,6 @@ package sirikhojornsombut.jedsada.lab7;
 
 import java.util.Comparator;
 
-import sirikhojornsombut.jedsada.lab5.GuessNumberGameVer3;
-
 public class GuessNumberGameVer4 {
     protected int minNum;
     protected int maxNum;
