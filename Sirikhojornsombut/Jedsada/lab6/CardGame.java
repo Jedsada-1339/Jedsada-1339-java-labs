@@ -1,4 +1,3 @@
-// Specify the package for the class
 package sirikhojornsombut.jedsada.lab6;
 
 // Define an abstract class CardGame that extends Game

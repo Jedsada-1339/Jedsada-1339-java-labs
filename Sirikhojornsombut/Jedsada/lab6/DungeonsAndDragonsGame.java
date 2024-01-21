@@ -1,7 +1,5 @@
 package sirikhojornsombut.jedsada.lab6;
 
-// Import statements can go here if needed
-
 // Define the class for Dungeons And Dragons Game, which extends CardGame and implements HasRule, UseBoard, UseDice
 public class DungeonsAndDragonsGame extends CardGame implements HasRule, UseBoard, UseDice {
 
