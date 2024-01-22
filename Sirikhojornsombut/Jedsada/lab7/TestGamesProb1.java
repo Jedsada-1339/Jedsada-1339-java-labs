@@ -20,19 +20,17 @@ public class TestGamesProb1 {
         games.add(new GuessNumberGameVer4(1,10,3));
         games.add(new GuessNumberGameVer4(1,10,5));
 
-        System.out.println("=====Unsorted games list ====");
+        printGamesList("=====Unsorted games list ====");
     }
 
     public static void sortGamesList(){
         Collections.sort(games, new SortByMaxTries());
         
-        System.out.println("=====Sorted games list ====");
+        printGamesList("=====Sorted games list ====");
     }
 
     public static void main(String[] args) {
         intGamesList();
-        printGamesList(null);
         sortGamesList();
-        printGamesList(null);
     }
 }
