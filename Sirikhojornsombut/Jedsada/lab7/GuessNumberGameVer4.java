@@ -8,12 +8,6 @@ public class GuessNumberGameVer4 {
     protected int maxNum;
     protected int maxTries;
 
-    public GuessNumberGameVer4(){
-        this.minNum = 1;
-        this.maxNum = 10;
-        this.maxTries = 3;
-    }
-
     public GuessNumberGameVer4(int minNum,int maxNum ,int maxTries){
         this.minNum = minNum;
         this.maxNum = maxNum;
