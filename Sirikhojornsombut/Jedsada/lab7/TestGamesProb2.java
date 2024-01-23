@@ -31,8 +31,6 @@ public class TestGamesProb2 {
 
     public static void main(String[] args) {
         intGamesList();
-        printGamesList(null);
         sortGamesList();
-        printGamesList(null);
     }
 }

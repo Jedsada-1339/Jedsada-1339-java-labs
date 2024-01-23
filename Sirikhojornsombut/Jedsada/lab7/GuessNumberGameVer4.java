@@ -21,19 +21,18 @@ public class GuessNumberGameVer4 {
         }
     }
 
-    static class SortByMaxTriesGuessRange implements Comparator<GuessNumberGameVer4> {
+    static class SortByMaxTriesGuessRange extends SortByMaxTries {
 
         public int compare(GuessNumberGameVer4 Guess1, GuessNumberGameVer4 Guess2) {
-            int maxTriesComparison = Integer.compare(Guess2.maxTries, Guess1.maxTries);
-    
-            if (maxTriesComparison != 0) {
-                return maxTriesComparison;
-            } else {
-                int range1 = Guess1.maxNum - Guess1.minNum;
-                int range2 = Guess2.maxNum - Guess2.minNum;
-    
-                return Integer.compare(range1, range2);
-            }
+            
+            int range1 = Guess1.maxNum - Guess1.minNum;
+            int range2 = Guess2.maxNum - Guess2.minNum;
+            super.compare(Guess1, Guess2);
+
+            if (super.compare(Guess1, Guess2) == 0) {
+                return Integer.compare(range2, range1);
+            } 
+            return super.compare(Guess1, Guess2);
         }
     }
 
