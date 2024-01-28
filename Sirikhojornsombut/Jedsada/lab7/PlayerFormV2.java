@@ -19,6 +19,8 @@ public class PlayerFormV2 extends PlayerFormV1 {
     protected void addComponents() {
         super.addComponents(); // Call the addComponents method from the superclass
 
+        JPanel centerPanel = new JPanel();
+
         playerTypeLabel = new JLabel("Player Type:");
         String[] playerTypes = {"Beginner", "Amateur", "Professional"};
         typesCombo = new JComboBox<>(playerTypes);
@@ -31,13 +33,15 @@ public class PlayerFormV2 extends PlayerFormV1 {
         noteTextArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(noteTextArea);
 
-        topPanel.setLayout(new GridLayout(7, 2));
+        topPanel.setLayout(new GridLayout(5, 2));
         topPanel.add(playerTypeLabel);
         topPanel.add(typesCombo);
-        topPanel.add(noteLabel);
-        topPanel.add(new JLabel(""));
-        topPanel.add(scrollPane);
-        topPanel.add(new JLabel(""));
+
+        centerPanel.setLayout(new GridLayout(2, 1));
+        centerPanel.add(noteLabel);
+        centerPanel.add(scrollPane);
+
+        mainPanel.add(centerPanel ,BorderLayout.CENTER);
     }
 
     // Override setFrameFeatures to add specific features for PlayerFormV2

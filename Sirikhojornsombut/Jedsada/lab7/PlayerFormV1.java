@@ -52,7 +52,7 @@ public class PlayerFormV1 extends MySimpleWindow {
         genderPanel.add(femaleRadioButton);
         topPanel.add(genderPanel);
 
-        mainPanel.add(topPanel, BorderLayout.CENTER);
+        mainPanel.add(topPanel, BorderLayout.NORTH);
     }
 
     // Override setFrameFeatures to add specific features for PlayerFormV1
