@@ -31,10 +31,11 @@ public class PlayerFormV2 extends PlayerFormV1 {
         noteTextArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(noteTextArea);
 
-        topPanel.setLayout(new GridLayout(6, 2));
+        topPanel.setLayout(new GridLayout(7, 2));
         topPanel.add(playerTypeLabel);
         topPanel.add(typesCombo);
         topPanel.add(noteLabel);
+        topPanel.add(new JLabel(""));
         topPanel.add(scrollPane);
     }
 
