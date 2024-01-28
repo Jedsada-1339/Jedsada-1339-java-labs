@@ -37,6 +37,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
         topPanel.add(noteLabel);
         topPanel.add(new JLabel(""));
         topPanel.add(scrollPane);
+        topPanel.add(new JLabel(""));
     }
 
     // Override setFrameFeatures to add specific features for PlayerFormV2

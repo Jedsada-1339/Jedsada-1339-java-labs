@@ -40,7 +40,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
         hobbiesPanel2.add(sleepingCheckbox);
         hobbiesPanel2.add(travelingCheckbox);
 
-        topPanel.setLayout(new GridLayout(8, 2));
+        topPanel.setLayout(new GridLayout(9, 2));
         topPanel.add(hobbiesLabel);
         topPanel.add(new JLabel(""));
         topPanel.add(hobbiesPanel2);
