@@ -8,6 +8,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
     protected JComboBox<String> typesCombo;
     protected JLabel noteLabel;
     protected JTextArea noteTextArea;
+    protected JPanel centerPanel;
 
     // Constructor for PlayerFormV2
     public PlayerFormV2() {
@@ -18,8 +19,6 @@ public class PlayerFormV2 extends PlayerFormV1 {
     @Override
     protected void addComponents() {
         super.addComponents(); // Call the addComponents method from the superclass
-
-        JPanel centerPanel = new JPanel();
 
         playerTypeLabel = new JLabel("Player Type:");
         String[] playerTypes = {"Beginner", "Amateur", "Professional"};
@@ -37,6 +36,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
         topPanel.add(playerTypeLabel);
         topPanel.add(typesCombo);
 
+        centerPanel = new JPanel();
         centerPanel.setLayout(new GridLayout(2, 1));
         centerPanel.add(noteLabel);
         centerPanel.add(scrollPane);
