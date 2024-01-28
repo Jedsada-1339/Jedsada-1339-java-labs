@@ -9,13 +9,15 @@ public class PlayerFormV2 extends PlayerFormV1 {
     protected JLabel noteLabel;
     protected JTextArea noteTextArea;
 
+    // Constructor for PlayerFormV2
     public PlayerFormV2() {
-        setTitle("Player Form V2");
+        setTitle("Player Form V2"); // Set the title for PlayerFormV2
     }
 
+    // Override addComponents to add specific components for PlayerFormV2
     @Override
     protected void addComponents() {
-        super.addComponents();
+        super.addComponents(); // Call the addComponents method from the superclass
 
         playerTypeLabel = new JLabel("Player Type:");
         String[] playerTypes = {"Beginner", "Amateur", "Professional"};
@@ -29,7 +31,6 @@ public class PlayerFormV2 extends PlayerFormV1 {
         noteTextArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(noteTextArea);
 
-
         topPanel.setLayout(new GridLayout(6, 2));
         topPanel.add(playerTypeLabel);
         topPanel.add(typesCombo);
@@ -37,18 +38,21 @@ public class PlayerFormV2 extends PlayerFormV1 {
         topPanel.add(scrollPane);
     }
 
+    // Override setFrameFeatures to add specific features for PlayerFormV2
     @Override
     protected void setFrameFeatures() {
-        super.setFrameFeatures();
-        pack();
+        super.setFrameFeatures(); // Call the setFrameFeatures method from the superclass
+        pack(); // Pack components within the frame
     }
 
+    // Static method to create and show the GUI for PlayerFormV2
     public static void createAndShowGUI() {
         PlayerFormV1 playerForm = new PlayerFormV2();
         playerForm.addComponents();
         playerForm.setFrameFeatures();
     }
 
+    // Main method to run the application for PlayerFormV2
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
