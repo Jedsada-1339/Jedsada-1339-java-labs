@@ -31,8 +31,8 @@ public class PlayerFormV4 extends PlayerFormV3 {
         JCheckBox readingCheckbox = new JCheckBox("Reading");
         JCheckBox browsingCheckbox = new JCheckBox("Browsing");
         JCheckBox sleepingCheckbox = new JCheckBox("Sleeping");
-        sleepingCheckbox.setSelected(true); // Checked by default
         JCheckBox travelingCheckbox = new JCheckBox("Traveling");
+        sleepingCheckbox.setSelected(true); // Checked by default
 
         hobbiesPanel.add(hobbiesLabel);
         hobbiesPanel2.add(readingCheckbox);
