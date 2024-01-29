@@ -97,4 +97,9 @@ public class PlayerFormV4 extends PlayerFormV3 {
             }
         });
     }
+
+    public void addMenu() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addMenu'");
+    }
 }
