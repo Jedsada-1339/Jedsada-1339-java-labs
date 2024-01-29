@@ -1,11 +1,12 @@
 package sirikhojornsombut.jedsada.lab8;
 
 import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
 import javax.swing.SwingUtilities;
 
 public class PlayerFormV5 extends PlayerFormV4 {
@@ -29,6 +30,29 @@ public class PlayerFormV5 extends PlayerFormV4 {
         add(mainPanel);
 
         // Add components to the content pane
+    }
+
+    protected void addMenus() {
+        super.addMenus();
+        JMenuBar menuBar = new JMenuBar(); // Create a menu bar
+
+        // Menu "File" with four menu items
+        JMenu fileMenu = new JMenu("File");
+        ImageIcon newIcon = new ImageIcon("ICON/Open-icon.png");
+        JMenuItem newMenuItem = new JMenuItem("New",newIcon);
+        JMenuItem openMenuItem = new JMenuItem("Open");
+        JMenuItem saveMenuItem = new JMenuItem("Save");
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        fileMenu.add(newMenuItem);
+        fileMenu.add(openMenuItem);
+        fileMenu.add(saveMenuItem);
+        fileMenu.add(exitMenuItem);
+
+        // Add menus to the menu bar
+        menuBar.add(fileMenu);
+
+        // Set the menu bar for the frame
+        setJMenuBar(menuBar);
     }
 
     // Static method to create and show the GUI for PlayerFormV4
