@@ -2,7 +2,6 @@ package sirikhojornsombut.jedsada.lab8;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -18,7 +17,6 @@ public class PlayerFormV5 extends PlayerFormV4 {
     protected void addComponents() {
         super.addComponents(); // Call the addComponents method from the parent class
 
-        
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.add(topPanel);
@@ -29,26 +27,50 @@ public class PlayerFormV5 extends PlayerFormV4 {
         mainPanel.add(buttonPanel);
         add(mainPanel);
 
-        // Add components to the content pane
     }
 
-    protected void addMenu() {
+    protected void addMenus() {
         JMenuBar menuBar = new JMenuBar(); // Create a menu bar
 
         // Menu "File" with four menu items
         JMenu fileMenu = new JMenu("File");
-        ImageIcon newIcon = new ImageIcon("ICON/Open-icon.png");
+        ImageIcon newIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/New-icon.png");
         JMenuItem newMenuItem = new JMenuItem("New",newIcon);
-        JMenuItem openMenuItem = new JMenuItem("Open");
-        JMenuItem saveMenuItem = new JMenuItem("Save");
+        ImageIcon openIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/Open-icon.png");
+        JMenuItem openMenuItem = new JMenuItem("Open",openIcon);
+        ImageIcon saveIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/Save-icon.png");
+        JMenuItem saveMenuItem = new JMenuItem("Save",saveIcon);
         JMenuItem exitMenuItem = new JMenuItem("Exit");
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
         fileMenu.add(saveMenuItem);
         fileMenu.add(exitMenuItem);
 
+        // Menu "Config" with two menu items
+        JMenu configMenu = new JMenu("Config");
+        
+        JMenu colorMenu = new JMenu("Color");
+        JMenuItem redMenuItem = new JMenuItem("Red");
+        JMenuItem greenMenuItem = new JMenuItem("Green");
+        JMenuItem blueMenuItem = new JMenuItem("Blue");
+        colorMenu.add(redMenuItem);
+        colorMenu.add(greenMenuItem);
+        colorMenu.add(blueMenuItem);
+
+        JMenuItem sizeMenu = new JMenu("Size");
+        JMenuItem size16MenuItem = new JMenuItem("16");
+        JMenuItem size20MenuItem = new JMenuItem("20");
+        JMenuItem size24MenuItem = new JMenuItem("24");
+        sizeMenu.add(size16MenuItem);
+        sizeMenu.add(size20MenuItem);
+        sizeMenu.add(size24MenuItem);
+
+        configMenu.add(colorMenu);
+        configMenu.add(sizeMenu);
+
         // Add menus to the menu bar
         menuBar.add(fileMenu);
+        menuBar.add(configMenu);
 
         // Set the menu bar for the frame
         setJMenuBar(menuBar);
@@ -56,9 +78,9 @@ public class PlayerFormV5 extends PlayerFormV4 {
 
     // Static method to create and show the GUI for PlayerFormV4
     public static void createAndShowGUI() {
-        PlayerFormV4 playerForm = new PlayerFormV4();
+        PlayerFormV5 playerForm = new PlayerFormV5();
         playerForm.addComponents();
-        playerForm.addMenu();
+        playerForm.addMenus();
         playerForm.setFrameFeatures();
     }
 

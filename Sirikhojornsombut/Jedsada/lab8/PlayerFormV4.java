@@ -21,7 +21,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
     protected void addComponents() {
         super.addComponents(); // Call the addComponents method from the parent class
 
-        JPanel hobbiesPanel = new JPanel();
+        hobbiesPanel = new JPanel();
         JPanel hobbiesPanel2 = new JPanel();
 
         hobbiesPanel.setLayout(new GridLayout(0,1));
@@ -45,7 +45,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
         hobbiesPanel.add(hobbiesPanel2);
 
 
-        JPanel sportPanel = new JPanel();
+        sportPanel = new JPanel();
         sportPanel.setLayout(new GridLayout(0,2));
         // Add components for favorite sports
         JLabel sportLabel = new JLabel("Sport:");
@@ -54,7 +54,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
         sportPanel.add(sportLabel);
         sportPanel.add(sportsList);
         
-        JPanel experiencePanel = new JPanel();
+        experiencePanel = new JPanel();
         experiencePanel.setLayout(new GridLayout(0,1));
         // Add components for years of experience slider
         JLabel experienceLabel = new JLabel("Year of experience in this sport:");
@@ -65,8 +65,6 @@ public class PlayerFormV4 extends PlayerFormV3 {
         experienceSlider.setPaintLabels(true);
         experiencePanel.add(experienceLabel);
         experiencePanel.add(experienceSlider);
-
-
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
