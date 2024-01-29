@@ -51,7 +51,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
 
     // Override setFrameFeatures to add specific features for PlayerFormV2
     @Override
-    protected void setFrameFeatures() {
+    public void setFrameFeatures() {
         super.setFrameFeatures(); // Call the setFrameFeatures method from the superclass
         pack(); // Pack components within the frame
     }

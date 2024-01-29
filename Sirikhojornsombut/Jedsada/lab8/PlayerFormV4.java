@@ -4,13 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PlayerFormV4 extends PlayerFormV3 {
-    // Components for hobbies
+    protected JPanel hobbiesPanel;
+    protected JPanel sportPanel;
+    protected JPanel experiencePanel;
 
     // Components for favorite sports
     private JList<String> sportsList;
     private String[] sports = {"Badminton", "Boxing", "Football", "Running"};
-
-    // Components for years of experience slider
 
     // Constructor for PlayerFormV4
     public PlayerFormV4() {
