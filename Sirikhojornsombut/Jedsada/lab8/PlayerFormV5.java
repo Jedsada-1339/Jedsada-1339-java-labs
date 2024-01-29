@@ -32,8 +32,7 @@ public class PlayerFormV5 extends PlayerFormV4 {
         // Add components to the content pane
     }
 
-    protected void addMenus() {
-        super.addMenus();
+    protected void addMenu() {
         JMenuBar menuBar = new JMenuBar(); // Create a menu bar
 
         // Menu "File" with four menu items
@@ -59,7 +58,7 @@ public class PlayerFormV5 extends PlayerFormV4 {
     public static void createAndShowGUI() {
         PlayerFormV4 playerForm = new PlayerFormV4();
         playerForm.addComponents();
-        playerForm.addMenus();
+        playerForm.addMenu();
         playerForm.setFrameFeatures();
     }
 
