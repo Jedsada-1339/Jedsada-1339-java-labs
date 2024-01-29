@@ -54,10 +54,52 @@ public class PlayerFormV5 extends PlayerFormV4 {
     }
 
     protected void addMenus() {
-        // Add menu items as before
+        JMenuBar menuBar = new JMenuBar(); // Create a menu bar
+
+        // Menu "File" with four menu items
+        JMenu fileMenu = new JMenu("File");
+        ImageIcon newIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/New-icon.png");
+        JMenuItem newMenuItem = new JMenuItem("New",newIcon);
+        ImageIcon openIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/Open-icon.png");
+        JMenuItem openMenuItem = new JMenuItem("Open",openIcon);
+        ImageIcon saveIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/Save-icon.png");
+        JMenuItem saveMenuItem = new JMenuItem("Save",saveIcon);
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        fileMenu.add(newMenuItem);
+        fileMenu.add(openMenuItem);
+        fileMenu.add(saveMenuItem);
+        fileMenu.add(exitMenuItem);
+
+        // Menu "Config" with two menu items
+        JMenu configMenu = new JMenu("Config");
+
+        JMenu colorMenu = new JMenu("Color");
+        JMenuItem redMenuItem = new JMenuItem("Red");
+        JMenuItem greenMenuItem = new JMenuItem("Green");
+        JMenuItem blueMenuItem = new JMenuItem("Blue");
+        colorMenu.add(redMenuItem);
+        colorMenu.add(greenMenuItem);
+        colorMenu.add(blueMenuItem);
+
+        JMenuItem sizeMenu = new JMenu("Size");
+        JMenuItem size16MenuItem = new JMenuItem("16");
+        JMenuItem size20MenuItem = new JMenuItem("20");
+        JMenuItem size24MenuItem = new JMenuItem("24");
+        sizeMenu.add(size16MenuItem);
+        sizeMenu.add(size20MenuItem);
+        sizeMenu.add(size24MenuItem);
+
+        configMenu.add(colorMenu);
+        configMenu.add(sizeMenu);
+
+        // Add menus to the menu bar
+        menuBar.add(fileMenu);
+        menuBar.add(configMenu);
+
+        // Set the menu bar for the frame
+        setJMenuBar(menuBar);
     }
 
-    // Other methods remain the same
 
     // Static method to create and show the GUI for PlayerFormV5
     public static void createAndShowGUI() {
