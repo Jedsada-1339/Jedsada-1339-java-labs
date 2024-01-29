@@ -26,6 +26,8 @@ public class PlayerFormV4 extends PlayerFormV3 {
         JPanel hobbiesPanel = new JPanel();
         JPanel hobbiesPanel2 = new JPanel();
 
+        hobbiesPanel.setLayout(new GridLayout(1,2));
+
         // Add checkboxes for hobbies
         JLabel hobbiesLabel = new JLabel("Hobbies:");
         JCheckBox readingCheckbox = new JCheckBox("Reading");
@@ -35,15 +37,21 @@ public class PlayerFormV4 extends PlayerFormV3 {
         sleepingCheckbox.setSelected(true); // Checked by default
 
         hobbiesPanel.add(hobbiesLabel);
+
+        hobbiesPanel2.setLayout(new FlowLayout(FlowLayout.LEADING));
         hobbiesPanel2.add(readingCheckbox);
         hobbiesPanel2.add(browsingCheckbox);
         hobbiesPanel2.add(sleepingCheckbox);
         hobbiesPanel2.add(travelingCheckbox);
 
-        topPanel.setLayout(new GridLayout(7, 2));
+        hobbiesPanel.add(hobbiesPanel2);
+
+
+        topPanel.setLayout(new GridLayout(10, 2));
         topPanel.add(hobbiesLabel);
-        topPanel.add(new JLabel(""));
+        // topPanel.add(new JLabel(""));
         topPanel.add(hobbiesPanel2);
+        // topPanel.add(new JLabel(""));
 
         //mainPanel.add(hobbiesPanel, BorderLayout.CENTER);
 
@@ -51,6 +59,8 @@ public class PlayerFormV4 extends PlayerFormV3 {
         JLabel sportLabel = new JLabel("Sport:");
         sportsList = new JList<>(sports);
         sportsList.setSelectedValue("Football", true); // Selected by default
+        topPanel.add(sportLabel);
+        topPanel.add(sportsList);
 
         // Add components for years of experience slider
         JLabel experienceLabel = new JLabel("Year of experience in this sport:");
@@ -59,6 +69,18 @@ public class PlayerFormV4 extends PlayerFormV3 {
         experienceSlider.setMinorTickSpacing(1);
         experienceSlider.setPaintTicks(true);
         experienceSlider.setPaintLabels(true);
+        topPanel.add(experienceLabel);
+        topPanel.add(new JLabel(""));
+        topPanel.add(experienceSlider);
+
+
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new FlowLayout());
+        mainPanel.add(topPanel);
+        mainPanel.add(centerPanel);
+        mainPanel.add(buttonPanel);
+        add(mainPanel);
 
         // Add components to the content pane
     }

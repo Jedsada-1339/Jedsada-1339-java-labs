@@ -40,8 +40,13 @@ public class PlayerFormV2 extends PlayerFormV1 {
         centerPanel.setLayout(new GridLayout(2, 1));
         centerPanel.add(noteLabel);
         centerPanel.add(scrollPane);
-
+        
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.add(topPanel, BorderLayout.NORTH);
         mainPanel.add(centerPanel ,BorderLayout.CENTER);
+        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+        add(mainPanel);
     }
 
     // Override setFrameFeatures to add specific features for PlayerFormV2

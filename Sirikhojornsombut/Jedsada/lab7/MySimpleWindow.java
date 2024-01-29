@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class MySimpleWindow extends JFrame {
     protected JPanel buttonPanel;
-    protected JPanel mainPanel;
     protected JButton resetButton;
     protected JButton submitButton;
 
@@ -17,7 +16,7 @@ public class MySimpleWindow extends JFrame {
     // Method to initialize and add components to the frame
     protected void addComponents() {
         buttonPanel = new JPanel();
-        mainPanel = new JPanel();
+        JPanel mainPanel = new JPanel();
         resetButton = new JButton("Reset");
         submitButton = new JButton("Submit");
 

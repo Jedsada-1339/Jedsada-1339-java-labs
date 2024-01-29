@@ -8,6 +8,13 @@
             "type": "java",
             "name": "test",
             "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab8.test",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
             "mainClass": "sirikhojornsombut.jedsada.lab7.test",
             "projectName": "Jedsada-1339-java-labs_3549614a"
         },
