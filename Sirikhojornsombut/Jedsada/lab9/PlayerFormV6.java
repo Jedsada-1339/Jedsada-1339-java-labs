@@ -21,7 +21,12 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
     public void actionPerformed(ActionEvent e) {
         Object srcObject = e.getSource();
         if (srcObject == submitButton) {
-            JOptionPane.showMessageDialog(this, "hello");
+            JOptionPane.showMessageDialog(this, nameTextField.getText()+" has nationality as "+ nationalityTextField.getText() +" and was born on "+ dobTextField.getText()
+            + ", has gender as"+" ,is a "+typesCombo.getSelectedItem() +" player, has hobbies as ");
+        }else if (srcObject == resetButton){
+            nameTextField.setText("");
+            nationalityTextField.setText("");
+            dobTextField.setText("");
         }
     }
     
