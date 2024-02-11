@@ -30,10 +30,7 @@ public class DiceGameWindow extends JFrame {
     
         JPanel mainPanel = new JPanel(new BorderLayout());
         
-        // Place the button panel at the top
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
-    
-        // Place the dice canvas at the center
         mainPanel.add(diceCanvas, BorderLayout.CENTER);
     
         add(mainPanel);
