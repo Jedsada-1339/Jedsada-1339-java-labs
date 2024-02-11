@@ -70,7 +70,6 @@ public class DiceImageCanvas extends JPanel {
                 drawCenteredDot(g, centerX + 30, centerY + 30);
                 break;
             default:
-                // Handle other cases if needed
                 break;
         }
     }
