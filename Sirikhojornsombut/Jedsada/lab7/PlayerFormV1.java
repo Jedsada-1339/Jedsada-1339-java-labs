@@ -8,6 +8,7 @@ public class PlayerFormV1 extends MySimpleWindow {
     protected JLabel nameLabel;
     protected JLabel nationalityLabel;
     protected JLabel dobLabel;
+    protected JTextField nameTextField,nationalityTextField,dobTextField;
     protected JRadioButton maleRadioButton;
     protected JRadioButton femaleRadioButton;
 
@@ -26,8 +27,11 @@ public class PlayerFormV1 extends MySimpleWindow {
 
         topPanel = new JPanel();
         nameLabel = new JLabel("Name:");
+        nameTextField = new JTextField(TEXT_FIELD_LENGTH);
         nationalityLabel = new JLabel("Nationality:");
+        nationalityTextField = new JTextField(TEXT_FIELD_LENGTH);
         dobLabel = new JLabel("Date of Birth (eg., 31-01-1990):");
+        dobTextField = new JTextField(TEXT_FIELD_LENGTH);
 
         maleRadioButton = new JRadioButton("Male");
         femaleRadioButton = new JRadioButton("Female");
@@ -40,11 +44,11 @@ public class PlayerFormV1 extends MySimpleWindow {
 
         topPanel.setLayout(new GridLayout(4, 2));
         topPanel.add(nameLabel);
-        topPanel.add(new JTextField(TEXT_FIELD_LENGTH));
+        topPanel.add(nameTextField);
         topPanel.add(nationalityLabel);
-        topPanel.add(new JTextField(TEXT_FIELD_LENGTH));
+        topPanel.add(nationalityTextField);
         topPanel.add(dobLabel);
-        topPanel.add(new JTextField(TEXT_FIELD_LENGTH));
+        topPanel.add(dobTextField);
         topPanel.add(new JLabel("Gender:"));
         JPanel genderPanel = new JPanel();
         genderPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
