@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DiceGameWindow",
+            "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab9.DiceGameWindow",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "PlayerFormV5",
             "request": "launch",
             "mainClass": "sirikhojornsombut.jedsada.lab8.PlayerFormV5",
