@@ -28,7 +28,7 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
         }
         if (srcObject == submitButton) {
             JOptionPane.showMessageDialog(this, nameTextField.getText()+" has nationality as "+ nationalityTextField.getText() +" and was born on "+ dobTextField.getText()
-            + ", has gender as "+gender+" ,is a "+typesCombo.getSelectedItem() +" player, has hobbies as ");
+            + ", has gender as " + gender +" ,is a "+typesCombo.getSelectedItem() +" player, has hobbies as ");
         }else if (srcObject == resetButton){
             nameTextField.setText("");
             nationalityTextField.setText("");

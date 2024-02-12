@@ -7,6 +7,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
     protected JPanel hobbiesPanel;
     protected JPanel sportPanel;
     protected JPanel experiencePanel;
+    protected JCheckBox readingCheckbox,browsingCheckbox,sleepingCheckbox,travelingCheckbox;
 
     // Components for favorite sports
     private JList<String> sportsList;
@@ -28,10 +29,10 @@ public class PlayerFormV4 extends PlayerFormV3 {
 
         // Add checkboxes for hobbies
         JLabel hobbiesLabel = new JLabel("Hobbies:");
-        JCheckBox readingCheckbox = new JCheckBox("Reading");
-        JCheckBox browsingCheckbox = new JCheckBox("Browsing");
-        JCheckBox sleepingCheckbox = new JCheckBox("Sleeping");
-        JCheckBox travelingCheckbox = new JCheckBox("Traveling");
+        readingCheckbox = new JCheckBox("Reading");
+        browsingCheckbox = new JCheckBox("Browsing");
+        sleepingCheckbox = new JCheckBox("Sleeping");
+        travelingCheckbox = new JCheckBox("Traveling");
         sleepingCheckbox.setSelected(true); // Checked by default
 
         hobbiesPanel.add(hobbiesLabel);
