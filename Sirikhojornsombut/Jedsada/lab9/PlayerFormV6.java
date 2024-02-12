@@ -18,6 +18,9 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
     public void addListeners(){
         submitButton.addActionListener(this);
         resetButton.addActionListener(this);
+        nameTextField.addActionListener(this);
+        nationalityTextField.addActionListener(this);
+        dobTextField.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -50,6 +53,14 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
             nameTextField.setText("");
             nationalityTextField.setText("");
             dobTextField.setText("");
+        }
+        if (srcObject == nameTextField){
+            JOptionPane.showMessageDialog(this,"Name is changed to " + nameTextField.getText());
+        }else if (srcObject == nationalityTextField){
+            JOptionPane.showMessageDialog(this,"Nationality is changed to " + nationalityTextField.getText());
+        }
+        else if (srcObject == dobTextField){
+            JOptionPane.showMessageDialog(this,"Date of Birth is changed to " + dobTextField.getText());
         }
     }
     
