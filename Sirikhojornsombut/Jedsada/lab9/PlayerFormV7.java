@@ -2,16 +2,17 @@ package sirikhojornsombut.jedsada.lab9;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 
-public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 implements ActionListener {
-    static String gender;
-    public PlayerFormV6() {
-        setTitle("Player Form V6"); // Set the title for PlayerFormV4
+public class PlayerFormV7 extends PlayerFormV6 implements ActionListener,ItemListener {
+    
+    public PlayerFormV7() {
+        setTitle("Player Form V7"); // Set the title for PlayerFormV4
     }
 
     public void addListeners(){
@@ -20,20 +21,12 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
     }
 
     public void actionPerformed(ActionEvent e) {
-        Object srcObject = e.getSource();
-        if(maleRadioButton.isSelected() == true){
-            gender = "male";
-        }else{
-            gender = "female";
-        }
-        if (srcObject == submitButton) {
-            JOptionPane.showMessageDialog(this, nameTextField.getText()+" has nationality as "+ nationalityTextField.getText() +" and was born on "+ dobTextField.getText()
-            + ", has gender as "+gender+" ,is a "+typesCombo.getSelectedItem() +" player, has hobbies as ");
-        }else if (srcObject == resetButton){
-            nameTextField.setText("");
-            nationalityTextField.setText("");
-            dobTextField.setText("");
-        }
+        super.actionPerformed(e);
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        throw new UnsupportedOperationException("Unimplemented method 'itemStateChanged'");
     }
     
 
@@ -47,7 +40,7 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
     }
     
     public static void createAndShowGUI() {
-        PlayerFormV6 playerForm = new PlayerFormV6();
+        PlayerFormV7 playerForm = new PlayerFormV7();
         playerForm.addComponents();
         playerForm.addMenus();
         playerForm.addListeners();
