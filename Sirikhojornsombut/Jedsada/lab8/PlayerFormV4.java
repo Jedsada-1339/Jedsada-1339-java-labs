@@ -10,7 +10,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
     protected JCheckBox readingCheckbox,browsingCheckbox,sleepingCheckbox,travelingCheckbox;
 
     // Components for favorite sports
-    private JList<String> sportsList;
+    protected JList<String> sportsList;
     private String[] sports = {"Badminton", "Boxing", "Football", "Running"};
 
     // Constructor for PlayerFormV4

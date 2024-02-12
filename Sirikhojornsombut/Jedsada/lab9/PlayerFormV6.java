@@ -2,6 +2,7 @@ package sirikhojornsombut.jedsada.lab9;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -9,7 +10,9 @@ import javax.swing.SwingUtilities;
 
 
 public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 implements ActionListener {
-    static String gender;
+    protected String gender;
+    protected StringBuilder hobbies;
+
     public PlayerFormV6() {
         setTitle("Player Form V6"); // Set the title for PlayerFormV4
     }
@@ -26,9 +29,25 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
         }else{
             gender = "female";
         }
+        StringBuilder hobbies = new StringBuilder();
+        if (readingCheckbox.isSelected()) {
+            hobbies.append(readingCheckbox.getText()).append(" ");
+        }
+
+        if (browsingCheckbox.isSelected()) {
+            hobbies.append(browsingCheckbox.getText()).append(" ");
+        }
+
+        if (sleepingCheckbox.isSelected()) {
+            hobbies.append(sleepingCheckbox.getText()).append(" ");
+        }
+
+        if (travelingCheckbox.isSelected()) {
+            hobbies.append(travelingCheckbox.getText()).append(" ");
+        }
         if (srcObject == submitButton) {
             JOptionPane.showMessageDialog(this, nameTextField.getText()+" has nationality as "+ nationalityTextField.getText() +" and was born on "+ dobTextField.getText()
-            + ", has gender as " + gender +" ,is a "+typesCombo.getSelectedItem() +" player, has hobbies as ");
+            + ", has gender as " + gender +" ,is a "+typesCombo.getSelectedItem() +" player, has hobbies as "+hobbies+" and plays "+sportsList.getSelectedValuesList());
         }else if (srcObject == resetButton){
             nameTextField.setText("");
             nationalityTextField.setText("");
