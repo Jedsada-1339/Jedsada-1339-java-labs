@@ -65,14 +65,6 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
     }
     
 
-    // Override addComponents to add new components to the frame
-    protected void addComponents() {
-        super.addComponents(); // Call the addComponents method from the parent class
-    }
-
-    protected void addMenus(){
-        super.addMenus();
-    }
     
     public static void createAndShowGUI() {
         PlayerFormV6 playerForm = new PlayerFormV6();
