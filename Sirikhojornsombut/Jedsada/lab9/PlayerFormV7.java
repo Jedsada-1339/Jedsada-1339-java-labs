@@ -33,8 +33,8 @@ public class PlayerFormV7 extends PlayerFormV6 implements ItemListener {
                 JOptionPane.showMessageDialog(this, "Gender is updated to "+ radioBtn.getActionCommand());
         } else if (src instanceof JCheckBox) {
             JCheckBox checkBox = (JCheckBox) src;
-            //System.out.println(checkBox.getText() + " " + checkBox.isSelected());
-            if (e.getStateChange() == ItemEvent.SELECTED) {
+            System.out.println(checkBox.getText() + " " + checkBox.isSelected());
+            if (checkBox.isSelected()) {
                 JOptionPane.showMessageDialog(this, "Selected " + checkBox.getText());
                 checkBox.setSelected(true);
             } else {
