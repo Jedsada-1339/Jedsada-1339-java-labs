@@ -10,6 +10,7 @@ import javax.swing.SwingUtilities;
 public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 implements ActionListener {
     protected String gender;
     protected StringBuilder hobbies;
+    protected Object srcObject;
 
     public PlayerFormV6() {
         setTitle("Player Form V6"); // Set the title for PlayerFormV4
@@ -24,7 +25,7 @@ public class PlayerFormV6 extends sirikhojornsombut.jedsada.lab8.PlayerFormV5 im
     }
 
     public void actionPerformed(ActionEvent e) {
-        Object srcObject = e.getSource();
+        srcObject = e.getSource();
         if(maleRadioButton.isSelected() == true){
             gender = "male";
         }else{

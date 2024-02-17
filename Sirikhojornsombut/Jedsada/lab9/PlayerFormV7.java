@@ -2,11 +2,13 @@ package sirikhojornsombut.jedsada.lab9;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.SwingUtilities;
+
 
 
 public class PlayerFormV7 extends PlayerFormV6 implements ItemListener {
@@ -19,30 +21,34 @@ public class PlayerFormV7 extends PlayerFormV6 implements ItemListener {
         super.addListeners();
         maleRadioButton.addItemListener(this);
         femaleRadioButton.addItemListener(this);
-        readingCheckbox.addItemListener(this);
-        browsingCheckbox.addItemListener(this);
-        sleepingCheckbox.addItemListener(this);
-        travelingCheckbox.addItemListener(this);
+        readingCheckbox.addActionListener(this);
+        browsingCheckbox.addActionListener(this);
+        sleepingCheckbox.addActionListener(this);
+        travelingCheckbox.addActionListener(this);
+    }
+    public void actionPerformed(ActionEvent e) {
+        super.actionPerformed(e);
+        if(srcObject instanceof JCheckBox){
+            JCheckBox checkBox = (JCheckBox) srcObject;
+            if(checkBox.isSelected()){
+                JOptionPane.showMessageDialog(this, checkBox.getActionCommand()+" is one of the hobbies");
+            }else{
+                JOptionPane.showMessageDialog(this, checkBox.getActionCommand()+" is no longer one of the hobbies");
+            }
+        }
     }
 
     public void itemStateChanged(ItemEvent e) {
         Object src = e.getItemSelectable();
-        if(src instanceof JRadioButton){
+        if (src instanceof JRadioButton) {
             JRadioButton radioBtn = (JRadioButton) src;
             if (radioBtn.isSelected())
-                JOptionPane.showMessageDialog(this, "Gender is updated to "+ radioBtn.getActionCommand());
-        } else if (src instanceof JCheckBox) {
-            JCheckBox checkBox = (JCheckBox) src;
-            System.out.println(checkBox.getText() + " " + checkBox.isSelected());
-            if (checkBox.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selected " + checkBox.getText());
-                checkBox.setSelected(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Unselected " + checkBox.getText());
-                checkBox.setSelected(false);
-            }
-        }
+                JOptionPane.showMessageDialog(this, "Gender is updated to " + radioBtn.getActionCommand());
+        } 
     }
+    
+    
+    
     
     
     public static void createAndShowGUI() {
