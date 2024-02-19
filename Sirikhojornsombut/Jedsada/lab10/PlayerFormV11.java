@@ -1,5 +1,7 @@
 package sirikhojornsombut.jedsada.lab10;
 
+import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -57,6 +59,10 @@ public class PlayerFormV11 extends PlayerFormV10 {
         setJMenuBar(menuBar);
     }
     
+    public void actionPerformed(ActionEvent e) {
+        super.actionPerformed(e);
+    }
+
     public void addListeners() {
         super.addListeners();
         customMenuItem.addActionListener(this);
