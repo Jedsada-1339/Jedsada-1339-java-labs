@@ -3,6 +3,10 @@ package sirikhojornsombut.jedsada.lab8; //sirikhojornsombut.jedsada.lab7.PlayerF
 import javax.swing.*;
 
 public class PlayerFormV3 extends sirikhojornsombut.jedsada.lab7.PlayerFormV2 {
+    JMenuItem newMenuItem,openMenuItem,saveMenuItem,exitMenuItem;
+    JMenuItem redMenuItem,greenMenuItem,blueMenuItem;
+    JMenuItem size16MenuItem,size20MenuItem,size24MenuItem;
+
     // Constructor for PlayerFormV3
     public PlayerFormV3() {
         setTitle("Player Form V3"); // Set the title for PlayerFormV3
@@ -14,10 +18,10 @@ public class PlayerFormV3 extends sirikhojornsombut.jedsada.lab7.PlayerFormV2 {
 
         // Menu "File" with four menu items
         JMenu fileMenu = new JMenu("File");
-        JMenuItem newMenuItem = new JMenuItem("New");
-        JMenuItem openMenuItem = new JMenuItem("Open");
-        JMenuItem saveMenuItem = new JMenuItem("Save");
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        newMenuItem = new JMenuItem("New");
+        openMenuItem = new JMenuItem("Open");
+        saveMenuItem = new JMenuItem("Save");
+        exitMenuItem = new JMenuItem("Exit");
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
         fileMenu.add(saveMenuItem);
@@ -27,17 +31,17 @@ public class PlayerFormV3 extends sirikhojornsombut.jedsada.lab7.PlayerFormV2 {
         JMenu configMenu = new JMenu("Config");
         
         JMenu colorMenu = new JMenu("Color");
-        JMenuItem redMenuItem = new JMenuItem("Red");
-        JMenuItem greenMenuItem = new JMenuItem("Green");
-        JMenuItem blueMenuItem = new JMenuItem("Blue");
+        redMenuItem = new JMenuItem("Red");
+        greenMenuItem = new JMenuItem("Green");
+        blueMenuItem = new JMenuItem("Blue");
         colorMenu.add(redMenuItem);
         colorMenu.add(greenMenuItem);
         colorMenu.add(blueMenuItem);
 
         JMenuItem sizeMenu = new JMenu("Size");
-        JMenuItem size16MenuItem = new JMenuItem("16");
-        JMenuItem size20MenuItem = new JMenuItem("20");
-        JMenuItem size24MenuItem = new JMenuItem("24");
+        size16MenuItem = new JMenuItem("16");
+        size20MenuItem = new JMenuItem("20");
+        size24MenuItem = new JMenuItem("24");
         sizeMenu.add(size16MenuItem);
         sizeMenu.add(size20MenuItem);
         sizeMenu.add(size24MenuItem);
