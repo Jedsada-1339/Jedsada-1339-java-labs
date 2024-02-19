@@ -3,9 +3,9 @@ package sirikhojornsombut.jedsada.lab8; //sirikhojornsombut.jedsada.lab7.PlayerF
 import javax.swing.*;
 
 public class PlayerFormV3 extends sirikhojornsombut.jedsada.lab7.PlayerFormV2 {
-    JMenuItem newMenuItem,openMenuItem,saveMenuItem,exitMenuItem;
-    JMenuItem redMenuItem,greenMenuItem,blueMenuItem;
-    JMenuItem size16MenuItem,size20MenuItem,size24MenuItem;
+    protected JMenuItem newMenuItem,openMenuItem,saveMenuItem,exitMenuItem;
+    protected JMenuItem redMenuItem,greenMenuItem,blueMenuItem;
+    protected JMenuItem size16MenuItem,size20MenuItem,size24MenuItem;
 
     // Constructor for PlayerFormV3
     public PlayerFormV3() {
