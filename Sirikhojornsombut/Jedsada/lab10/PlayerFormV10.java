@@ -1,7 +1,6 @@
 package sirikhojornsombut.jedsada.lab10;
 
 import java.awt.event.ActionEvent;
-
 import javax.swing.SwingUtilities;
 
 public class PlayerFormV10 extends PlayerFormV9 {
@@ -24,10 +23,6 @@ public class PlayerFormV10 extends PlayerFormV9 {
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
-        Object srcObject = e.getSource(); // Set srcObject when an action is performed
-        if (srcObject == exitMenuItem) {
-            System.exit(0);
-        }
     }
 
     public static void createAndShowGUI() {

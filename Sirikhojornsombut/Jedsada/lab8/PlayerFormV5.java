@@ -59,12 +59,12 @@ public class PlayerFormV5 extends PlayerFormV4 {
         // Menu "File" with four menu items
         JMenu fileMenu = new JMenu("File");
         ImageIcon newIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/New-icon.png");
-        JMenuItem newMenuItem = new JMenuItem("New",newIcon);
+        newMenuItem = new JMenuItem("New",newIcon);
         ImageIcon openIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/Open-icon.png");
-        JMenuItem openMenuItem = new JMenuItem("Open",openIcon);
+        openMenuItem = new JMenuItem("Open",openIcon);
         ImageIcon saveIcon = new ImageIcon("sirikhojornsombut/jedsada/lab8/ICON/Save-icon.png");
-        JMenuItem saveMenuItem = new JMenuItem("Save",saveIcon);
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        saveMenuItem = new JMenuItem("Save",saveIcon);
+        exitMenuItem = new JMenuItem("Exit");
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
         fileMenu.add(saveMenuItem);
@@ -74,17 +74,17 @@ public class PlayerFormV5 extends PlayerFormV4 {
         JMenu configMenu = new JMenu("Config");
 
         JMenu colorMenu = new JMenu("Color");
-        JMenuItem redMenuItem = new JMenuItem("Red");
-        JMenuItem greenMenuItem = new JMenuItem("Green");
-        JMenuItem blueMenuItem = new JMenuItem("Blue");
+        redMenuItem = new JMenuItem("Red");
+        greenMenuItem = new JMenuItem("Green");
+        blueMenuItem = new JMenuItem("Blue");
         colorMenu.add(redMenuItem);
         colorMenu.add(greenMenuItem);
         colorMenu.add(blueMenuItem);
 
         JMenuItem sizeMenu = new JMenu("Size");
-        JMenuItem size16MenuItem = new JMenuItem("16");
-        JMenuItem size20MenuItem = new JMenuItem("20");
-        JMenuItem size24MenuItem = new JMenuItem("24");
+        size16MenuItem = new JMenuItem("16");
+        size20MenuItem = new JMenuItem("20");
+        size24MenuItem = new JMenuItem("24");
         sizeMenu.add(size16MenuItem);
         sizeMenu.add(size20MenuItem);
         sizeMenu.add(size24MenuItem);
