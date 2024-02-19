@@ -6,6 +6,8 @@ public class PlayerFormV3 extends sirikhojornsombut.jedsada.lab7.PlayerFormV2 {
     protected JMenuItem newMenuItem,openMenuItem,saveMenuItem,exitMenuItem;
     protected JMenuItem redMenuItem,greenMenuItem,blueMenuItem;
     protected JMenuItem size16MenuItem,size20MenuItem,size24MenuItem;
+    JMenuBar menuBar;
+    JMenu colorMenu;
 
     // Constructor for PlayerFormV3
     public PlayerFormV3() {
@@ -14,7 +16,7 @@ public class PlayerFormV3 extends sirikhojornsombut.jedsada.lab7.PlayerFormV2 {
 
     // Override addMenus to add menu bar with specified menus
     protected void addMenus() {
-        JMenuBar menuBar = new JMenuBar(); // Create a menu bar
+        menuBar = new JMenuBar(); // Create a menu bar
 
         // Menu "File" with four menu items
         JMenu fileMenu = new JMenu("File");
@@ -30,7 +32,7 @@ public class PlayerFormV3 extends sirikhojornsombut.jedsada.lab7.PlayerFormV2 {
         // Menu "Config" with two menu items
         JMenu configMenu = new JMenu("Config");
         
-        JMenu colorMenu = new JMenu("Color");
+        colorMenu = new JMenu("Color");
         redMenuItem = new JMenuItem("Red");
         greenMenuItem = new JMenuItem("Green");
         blueMenuItem = new JMenuItem("Blue");

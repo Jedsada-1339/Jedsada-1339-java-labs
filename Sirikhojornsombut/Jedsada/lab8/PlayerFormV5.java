@@ -30,7 +30,7 @@ class ReadImage extends JPanel {
 
 public class PlayerFormV5 extends PlayerFormV4 {
     public PlayerFormV5() {
-        setTitle("Player Form V4"); // Set the title for PlayerFormV4
+        setTitle("Player Form V5"); // Set the title for PlayerFormV4
     }
 
     // Override addComponents to add new components to the frame
@@ -54,6 +54,7 @@ public class PlayerFormV5 extends PlayerFormV4 {
     }
 
     protected void addMenus() {
+        super.addMenus();
         JMenuBar menuBar = new JMenuBar(); // Create a menu bar
 
         // Menu "File" with four menu items
@@ -96,7 +97,6 @@ public class PlayerFormV5 extends PlayerFormV4 {
         menuBar.add(fileMenu);
         menuBar.add(configMenu);
 
-        // Set the menu bar for the frame
         setJMenuBar(menuBar);
     }
 
