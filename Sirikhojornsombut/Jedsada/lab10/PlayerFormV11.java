@@ -3,17 +3,21 @@ package sirikhojornsombut.jedsada.lab10;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 public class PlayerFormV11 extends PlayerFormV10 {
     protected JMenuItem customMenuItem;
+    protected JFileChooser fileChooser;
 
     public PlayerFormV11() {
         super();
@@ -70,7 +74,9 @@ public class PlayerFormV11 extends PlayerFormV10 {
 
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
-    
+        fileChooser = new JFileChooser();
+
+
         if (e.getSource() == customMenuItem) {
             Color newColor = JColorChooser.showDialog(this, "Choose Color", customMenuItem.getBackground());
             if (newColor != null) {
@@ -78,6 +84,23 @@ public class PlayerFormV11 extends PlayerFormV10 {
                 nationalityTextField.setForeground(newColor);
                 dobTextField.setForeground(newColor);
             }
+        }
+
+        if(srcObject == openMenuItem){
+            int returnVal = fileChooser.showOpenDialog(this);
+
+            if(returnVal == JFileChooser.APPROVE_OPTION){
+                File file = fileChooser.getSelectedFile();
+                JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
+            }
+        }
+        if(srcObject == saveMenuItem){
+            int returnVal = fileChooser.showSaveDialog(this);
+
+            if(returnVal == JFileChooser.APPROVE_OPTION){
+                File file = fileChooser.getSelectedFile();
+                JOptionPane.showMessageDialog(this, "Saveing file " + file.getPath());
+            } 
         }
     }
 
