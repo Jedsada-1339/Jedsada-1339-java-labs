@@ -8,6 +8,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
     protected JPanel sportPanel;
     protected JPanel experiencePanel;
     protected JCheckBox readingCheckbox,browsingCheckbox,sleepingCheckbox,travelingCheckbox;
+    protected JSlider experienceSlider;
 
     // Components for favorite sports
     protected JList<String> sportsList;
@@ -59,7 +60,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
         experiencePanel.setLayout(new GridLayout(0,1));
         // Add components for years of experience slider
         JLabel experienceLabel = new JLabel("Year of experience in this sport:");
-        JSlider experienceSlider = new JSlider(0, 20, 0); // Minimum, Maximum, Default
+        experienceSlider = new JSlider(0, 20, 0); // Minimum, Maximum, Default
         experienceSlider.setMajorTickSpacing(5);
         experienceSlider.setMinorTickSpacing(1);
         experienceSlider.setPaintTicks(true);

@@ -9,7 +9,7 @@ public class PlayerFormV9 extends PlayerFormV8 implements ChangeListener{
     @Override
     public void addListeners() {
         super.addListeners();
-        experienceSlider.add
+        experienceSlider.addChangeListener(this);
     }
 
     @Override
