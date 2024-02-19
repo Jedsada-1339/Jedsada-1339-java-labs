@@ -8,6 +8,11 @@ import javax.swing.event.ChangeListener;
 
 public class PlayerFormV9 extends PlayerFormV8 implements ChangeListener{
 
+    public PlayerFormV9() {
+        super();
+        setTitle("Player Form V9");
+    }
+
     @Override
     public void addListeners() {
         super.addListeners();

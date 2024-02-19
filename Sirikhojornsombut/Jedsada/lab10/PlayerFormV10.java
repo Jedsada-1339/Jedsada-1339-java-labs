@@ -9,6 +9,11 @@ import javax.swing.SwingUtilities;
 
 public class PlayerFormV10 extends PlayerFormV9 {
 
+    public PlayerFormV10() {
+        super();
+        setTitle("Player Form V10");
+    }
+
     @Override
     public void addListeners() {
         super.addListeners();

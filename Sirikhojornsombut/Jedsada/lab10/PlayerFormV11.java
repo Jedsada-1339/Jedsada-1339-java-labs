@@ -11,6 +11,11 @@ import javax.swing.SwingUtilities;
 public class PlayerFormV11 extends PlayerFormV10 {
     protected JMenuItem customMenuItem;
 
+    public PlayerFormV11() {
+        super();
+        setTitle("Player Form V11");
+    }
+
     protected void addMenus(){
         JMenuBar menuBar = new JMenuBar(); // Create a menu bar
 
