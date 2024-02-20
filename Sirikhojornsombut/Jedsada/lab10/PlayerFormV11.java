@@ -78,7 +78,7 @@ public class PlayerFormV11 extends PlayerFormV10 {
 
 
         if (e.getSource() == customMenuItem) {
-            Color newColor = JColorChooser.showDialog(this, "Choose Color", customMenuItem.getBackground());
+            Color newColor = JColorChooser.showDialog(this, "Choose Text Color", customMenuItem.getBackground());
             if (newColor != null) {
                 nameTextField.setForeground(newColor);
                 nationalityTextField.setForeground(newColor);
