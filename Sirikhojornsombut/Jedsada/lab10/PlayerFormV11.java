@@ -15,15 +15,19 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
+
 public class PlayerFormV11 extends PlayerFormV10 {
+    // Additional menu item and file chooser
     protected JMenuItem customMenuItem;
     protected JFileChooser fileChooser;
 
+    // Constructor for PlayerFormV11
     public PlayerFormV11() {
-        super();
-        setTitle("Player Form V11");
+        super(); // Call the constructor of the superclass (PlayerFormV10)
+        setTitle("Player Form V11"); // Set the title for the frame
     }
 
+    // Override method to add menus
     protected void addMenus() {
         JMenuBar menuBar = new JMenuBar(); // Create a menu bar
 
@@ -72,38 +76,44 @@ public class PlayerFormV11 extends PlayerFormV10 {
         setJMenuBar(menuBar);
     }
 
+    // Override method for handling actionPerformed events
     public void actionPerformed(ActionEvent e) {
-        super.actionPerformed(e);
+        super.actionPerformed(e); // Call the method from the superclass
         fileChooser = new JFileChooser();
 
-
+        // Check if the customMenuItem was clicked
         if (e.getSource() == customMenuItem) {
+            // Open JColorChooser dialog to choose text color
             Color newColor = JColorChooser.showDialog(this, "Choose Text Color", nameTextField.getForeground());
             if (newColor != null) {
+                // Set text field foreground color to the chosen color
                 nameTextField.setForeground(newColor);
                 nationalityTextField.setForeground(newColor);
                 dobTextField.setForeground(newColor);
             }
         }
 
-        if(srcObject == openMenuItem){
+        // Check if the openMenuItem was clicked
+        if (srcObject == openMenuItem) {
             int returnVal = fileChooser.showOpenDialog(this);
 
-            if(returnVal == JFileChooser.APPROVE_OPTION){
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
             }
         }
-        if(srcObject == saveMenuItem){
+        // Check if the saveMenuItem was clicked
+        if (srcObject == saveMenuItem) {
             int returnVal = fileChooser.showSaveDialog(this);
 
-            if(returnVal == JFileChooser.APPROVE_OPTION){
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
-                JOptionPane.showMessageDialog(this, "Saveing file " + file.getPath());
-            } 
+                JOptionPane.showMessageDialog(this, "Saving file " + file.getPath());
+            }
         }
     }
 
+    // Enable keyboard shortcuts
     public void enableKeyboard() {
         // Set mnemonic keys and accelerator keys
         newMenuItem.setMnemonic(KeyEvent.VK_N);
@@ -116,26 +126,28 @@ public class PlayerFormV11 extends PlayerFormV10 {
         saveMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
     }
-    
 
+    // Override method to add listeners
     public void addListeners() {
-        super.addListeners();
-        customMenuItem.addActionListener(this);
+        super.addListeners(); // Call the method from the superclass to add existing listeners
+        customMenuItem.addActionListener(this); // Add ActionListener to the customMenuItem
     }
 
+    // Static method to create and show the GUI for PlayerFormV11
     public static void createAndShowGUI() {
-        PlayerFormV11 playerForm = new PlayerFormV11();
-        playerForm.addComponents();
-        playerForm.addMenus();
-        playerForm.addListeners();
-        playerForm.setFrameFeatures();
-        playerForm.enableKeyboard();
+        PlayerFormV11 playerForm = new PlayerFormV11(); // Create an instance of PlayerFormV11
+        playerForm.addComponents(); // Add components to the frame
+        playerForm.addMenus(); // Add menus to the frame
+        playerForm.addListeners(); // Add listeners to the frame
+        playerForm.setFrameFeatures(); // Set features for the frame
+        playerForm.enableKeyboard(); // Enable keyboard shortcuts
     }
 
+    // Main method to run the application for PlayerFormV11
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+                createAndShowGUI(); // Create and show the GUI on the Event Dispatch Thread
             }
         });
     }
