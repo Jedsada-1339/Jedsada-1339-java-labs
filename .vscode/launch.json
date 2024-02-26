@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PlayerFormV13",
+            "request": "launch",
+            "mainClass": "sirikhojornsombut.jedsada.lab11.PlayerFormV13",
+            "projectName": "Jedsada-1339-java-labs_3549614a"
+        },
+        {
+            "type": "java",
             "name": "PlayerFormV12",
             "request": "launch",
             "mainClass": "sirikhojornsombut.jedsada.lab12.PlayerFormV12",
