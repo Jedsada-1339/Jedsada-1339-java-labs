@@ -61,7 +61,7 @@ public class PlayerFormV13 extends PlayerFormV12 {
     }
 
     // Method to save player data to a file
-    private void savePlayerDataToFile() {
+    public void savePlayerDataToFile() {
         int returnVal = fileChooser.showSaveDialog(this);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -78,7 +78,7 @@ public class PlayerFormV13 extends PlayerFormV12 {
     }
 
     // Method to open player data from a file
-    private void openPlayerDataFromFile() {
+    public void openPlayerDataFromFile() {
         int returnVal = fileChooser.showOpenDialog(this);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
