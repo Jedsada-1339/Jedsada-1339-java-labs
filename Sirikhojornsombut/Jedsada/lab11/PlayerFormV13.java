@@ -19,14 +19,6 @@ public class PlayerFormV13 extends PlayerFormV12 {
         setTitle("Player Form V13");
     }
 
-    // Override method to add listeners
-    public void addListeners() {
-        super.addListeners(); // Call the method from the superclass to add existing listeners
-        customMenuItem.addActionListener(this); // Add ActionListener to the customMenuItem
-        saveMenuItem.addActionListener(this); // Add ActionListener to the saveMenuItem
-        openMenuItem.addActionListener(this); // Add ActionListener to the openMenuItem
-    }
-
     // Override method for handling actionPerformed events
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e); // Call the method from the superclass
