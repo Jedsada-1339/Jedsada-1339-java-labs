@@ -95,21 +95,11 @@ public class PlayerFormV11 extends PlayerFormV10 {
 
         // Check if the openMenuItem was clicked
         if (srcObject == openMenuItem) {
-            int returnVal = fileChooser.showOpenDialog(this);
-
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
-                JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
-            }
+            openPlayerDataFromFile();
         }
         // Check if the saveMenuItem was clicked
         if (srcObject == saveMenuItem) {
-            int returnVal = fileChooser.showSaveDialog(this);
-
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
-                JOptionPane.showMessageDialog(this, "Saving file " + file.getPath());
-            }
+            savePlayerDataToFile();
         }
     }
 
@@ -125,6 +115,24 @@ public class PlayerFormV11 extends PlayerFormV10 {
         openMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
         saveMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
+    }
+
+    public void savePlayerDataToFile() {
+        int returnVal = fileChooser.showSaveDialog(this);
+
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                JOptionPane.showMessageDialog(this, "Saving file " + file.getPath());
+            }
+        }
+
+    public void openPlayerDataFromFile(){
+        int returnVal = fileChooser.showOpenDialog(this);
+
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
+        }
     }
 
     // Override method to add listeners
