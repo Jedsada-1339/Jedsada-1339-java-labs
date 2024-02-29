@@ -43,7 +43,10 @@ public class PlayerFormV12 extends sirikhojornsombut.jedsada.lab10.PlayerFormV11
             JOptionPane.showMessageDialog(this, "Please enter some data in " + textField.getName());
             textField.requestFocusInWindow();
             nextTextField.setEnabled(false);
+        }else{
+            nextTextField.setEnabled(true);
         }
+
     }
 
     protected void handleDateTextField(JTextField textField) {
