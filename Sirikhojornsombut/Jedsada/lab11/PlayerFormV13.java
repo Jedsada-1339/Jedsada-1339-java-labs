@@ -92,7 +92,8 @@ public class PlayerFormV13 extends PlayerFormV12 {
                 while ((line = reader.readLine()) != null) {
                     data += line + "\n";
                 }
-                JOptionPane.showMessageDialog(this, "Player data read from file:\n\n" + data);
+                JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
+                JOptionPane.showMessageDialog(this, "Player data read from file:" + file.getPath()+ "\n" + data);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
