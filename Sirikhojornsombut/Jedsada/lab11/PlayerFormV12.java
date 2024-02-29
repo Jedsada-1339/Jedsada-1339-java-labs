@@ -59,7 +59,7 @@ public class PlayerFormV12 extends sirikhojornsombut.jedsada.lab10.PlayerFormV11
                 LocalDate.parse(text, formatter);
                 JOptionPane.showMessageDialog(this, textField.getName() + " is changed to " + text);
             } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid date in dd-MM-yyyy");
+                JOptionPane.showMessageDialog(this, "Please enter a valid date in " + textField.getName());
             }
         }
     }
