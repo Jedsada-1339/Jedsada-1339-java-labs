@@ -3,9 +3,13 @@ package sirikhojornsombut.jedsada.lab11;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -17,15 +21,15 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.SwingUtilities;
 
 public class PlayerFormV14 extends PlayerFormV13 {
-    protected JRadioButtonMenuItem yesButton,noButton;
+    protected JRadioButtonMenuItem yesButton, noButton;
 
     public PlayerFormV14() {
         super();
         setTitle("Player Form V14");
     }
 
-    protected void addMenus(){
-    JMenuBar menuBar = new JMenuBar(); // Create a menu bar
+    protected void addMenus() {
+        JMenuBar menuBar = new JMenuBar(); // Create a menu bar
 
         // Menu "File" with four menu items
         JMenu fileMenu = new JMenu("File");
@@ -65,10 +69,9 @@ public class PlayerFormV14 extends PlayerFormV13 {
         JMenu fillMenu = new JMenu("Fill");
         yesButton = new JRadioButtonMenuItem("Yes");
         noButton = new JRadioButtonMenuItem("No");
-        fillMenu.add(yesButton);        
+        fillMenu.add(yesButton);
         fillMenu.add(noButton);
         noButton.setSelected(true);
-
 
         configMenu.add(colorMenu);
         configMenu.add(sizeMenu);
@@ -85,20 +88,33 @@ public class PlayerFormV14 extends PlayerFormV13 {
     public void savePlayerDataToFile() {
         int returnVal = fileChooser.showSaveDialog(this);
 
-        if(noButton.isSelected() == true){
+        if (noButton.isSelected() == true) {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                     // Write player data in the same format as shown in the dialog
-                    writer.write(nameTextField.getText()+" has nationality as "+ nationalityTextField.getText() +" and was born on "+ dobTextField.getText()
-                    + ", has gender as " + gender +" ,is a "+typesCombo.getSelectedItem() +" player, has hobbies as "+hobbies+" and plays "+sportsList.getSelectedValuesList());
+                    writer.write(nameTextField.getText() + " has nationality as " + nationalityTextField.getText()
+                            + " and was born on " + dobTextField.getText()
+                            + ", has gender as " + gender + " ,is a " + typesCombo.getSelectedItem()
+                            + " player, has hobbies as " + hobbies + " and plays "
+                            + sportsList.getSelectedValuesList());
                     JOptionPane.showMessageDialog(this, "Player data saved to " + file.getPath());
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             }
-        }else if(yesButton.isSelected() == true){
-            
+        } else if (yesButton.isSelected() == true) {
+            Player player = new Player(nameTextField.getText(), nationalityTextField.getText());
+            player.setDob(dobTextField.getText());
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+                    oos.writeObject(player);
+                    JOptionPane.showMessageDialog(this, "Saving in file " + file.getPath());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
 
@@ -106,7 +122,7 @@ public class PlayerFormV14 extends PlayerFormV13 {
     public void openPlayerDataFromFile() {
         int returnVal = fileChooser.showOpenDialog(this);
 
-        if(noButton.isSelected() == true){
+        if (noButton.isSelected() == true) {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -117,16 +133,28 @@ public class PlayerFormV14 extends PlayerFormV13 {
                         data += line + "\n";
                     }
                     JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
-                    JOptionPane.showMessageDialog(this, "Player data read from file:" + file.getPath()+ "\n" + data);
+                    JOptionPane.showMessageDialog(this, "Player data read from file:" + file.getPath() + "\n" + data);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             }
-        }else if(yesButton.isSelected() == true){
-            
+        } else if (yesButton.isSelected() == true) {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+                    Player player = (Player) ois.readObject();
+                    // Fill the form with the attributes of the player object
+                    nameTextField.setText(player.getName());
+                    nationalityTextField.setText(player.getNationality());
+                    dobTextField.setText(player.getDob());
+                    // Set other form fields similarly
+                    JOptionPane.showMessageDialog(this, "Open file " + file.getPath());
+                } catch (IOException | ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
-
 
     public static void createAndShowGUI() {
         PlayerFormV14 playerForm = new PlayerFormV14(); // Create an instance of PlayerFormV13
@@ -145,5 +173,5 @@ public class PlayerFormV14 extends PlayerFormV13 {
             }
         });
     }
-    
+
 }
