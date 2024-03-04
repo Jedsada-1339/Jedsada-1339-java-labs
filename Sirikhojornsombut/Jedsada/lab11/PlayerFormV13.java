@@ -93,7 +93,7 @@ public class PlayerFormV13 extends PlayerFormV12 {
                     data += line + "\n";
                 }
                 JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
-                JOptionPane.showMessageDialog(this, "Player data read from file:" + file.getPath()+ "\n" + data);
+                JOptionPane.showMessageDialog(this, "Player data read from file: " + file.getName() + "\n" + data);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
