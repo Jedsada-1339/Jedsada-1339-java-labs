@@ -112,6 +112,8 @@ public class PlayerFormV14 extends PlayerFormV13 {
         } else if (yesButton.isSelected() == true) {
             Player player = new Player(nameTextField.getText(), nationalityTextField.getText());
             player.setDob(dobTextField.getText());
+            player.setYear(experienceSlider.getValue());
+            player.setPlayerType((String) typesCombo.getSelectedItem());
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
@@ -153,6 +155,8 @@ public class PlayerFormV14 extends PlayerFormV13 {
                     nameTextField.setText(player.getName());
                     nationalityTextField.setText(player.getNationality());
                     dobTextField.setText(player.getDob());
+                    typesCombo.setSelectedItem((Object) player.getPlayerType());
+                    experienceSlider.setValue(player.getYear());
                     // Set other form fields similarly
                     JOptionPane.showMessageDialog(this, "Open file " + file.getPath());
                 } catch (IOException | ClassNotFoundException ex) {

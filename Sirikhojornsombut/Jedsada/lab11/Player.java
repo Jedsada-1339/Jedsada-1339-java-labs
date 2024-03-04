@@ -7,17 +7,10 @@ public class Player implements Serializable {
     String name;
     String nationality;
     String dob;
-    String playerType;
+    String playerType; 
     ArrayList<String> hobbies;
     ArrayList<String> sports;
     int year;
-
-    // public Player(String name, String nationality, String dob, String playerType) {
-    //     this.name = name;
-    //     this.nationality = nationality;
-    //     this.dob = dob;
-    //     this.playerType = playerType;
-    // }
 
     public Player(String name, String nationality) {
         this.name = name;
