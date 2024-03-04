@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
@@ -67,9 +68,14 @@ public class PlayerFormV14 extends PlayerFormV13 {
         sizeMenu.add(size24MenuItem);
 
         JMenu fillMenu = new JMenu("Fill");
+        ButtonGroup fillButtonGroup = new ButtonGroup(); // ButtonGroup for grouping radio buttons
+
         yesButton = new JRadioButtonMenuItem("Yes");
-        noButton = new JRadioButtonMenuItem("No");
+        fillButtonGroup.add(yesButton); // Add Yes button to the group
         fillMenu.add(yesButton);
+
+        noButton = new JRadioButtonMenuItem("No");
+        fillButtonGroup.add(noButton); // Add No button to the group
         fillMenu.add(noButton);
         noButton.setSelected(true);
 
