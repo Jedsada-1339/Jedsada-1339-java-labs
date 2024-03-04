@@ -108,19 +108,17 @@ public class PlayerFormV14 extends PlayerFormV13 {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }
-        } else if (yesButton.isSelected() == true) {
-            Player player = new Player(nameTextField.getText(), nationalityTextField.getText());
-            player.setDob(dobTextField.getText());
-            player.setYear(experienceSlider.getValue());
-            player.setPlayerType((String) typesCombo.getSelectedItem());
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
-                try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-                    oos.writeObject(player);
-                    JOptionPane.showMessageDialog(this, "Saving in file " + file.getPath());
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                Player player = new Player(nameTextField.getText(), nationalityTextField.getText());
+                player.setDob(dobTextField.getText());
+                player.setYear(experienceSlider.getValue());
+                player.setPlayerType((String) typesCombo.getSelectedItem());
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+                        oos.writeObject(player);
+                        JOptionPane.showMessageDialog(this, "Saving in file " + file.getPath());
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         }
