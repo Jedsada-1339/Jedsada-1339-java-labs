@@ -108,17 +108,21 @@ public class PlayerFormV14 extends PlayerFormV13 {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-                Player player = new Player(nameTextField.getText(), nationalityTextField.getText());
-                player.setDob(dobTextField.getText());
-                player.setYear(experienceSlider.getValue());
-                player.setPlayerType((String) typesCombo.getSelectedItem());
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-                        oos.writeObject(player);
-                        JOptionPane.showMessageDialog(this, "Saving in file " + file.getPath());
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+            }
+        } else if (yesButton.isSelected() == true) {
+            File file = fileChooser.getSelectedFile();
+
+            Player player = new Player(nameTextField.getText(), nationalityTextField.getText());
+            player.setDob(dobTextField.getText());
+            player.setYear(experienceSlider.getValue());
+            player.setPlayerType((String) typesCombo.getSelectedItem());
+            player.setSex(gender);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+                    oos.writeObject(player);
+                    JOptionPane.showMessageDialog(this, "Saving in file " + file.getPath());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
             }
         }
@@ -150,6 +154,13 @@ public class PlayerFormV14 extends PlayerFormV13 {
                 try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
                     Player player = (Player) ois.readObject();
                     // Fill the form with the attributes of the player object
+                    if(player.getSex().equals("male")){
+                        maleRadioButton.setSelected(true);
+                    }
+                    else{
+                        femaleRadioButton.setSelected(true);
+                    }
+
                     nameTextField.setText(player.getName());
                     nationalityTextField.setText(player.getNationality());
                     dobTextField.setText(player.getDob());

@@ -8,6 +8,7 @@ public class Player implements Serializable {
     String nationality;
     String dob;
     String playerType; 
+    String sex;
     ArrayList<String> hobbies;
     ArrayList<String> sports;
     int year;
@@ -20,6 +21,10 @@ public class Player implements Serializable {
     // Getter methods
     public String getName() {
         return name;
+    }
+
+    public String getSex(){
+        return sex;
     }
 
     public String getNationality() {
@@ -73,5 +78,9 @@ public class Player implements Serializable {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public void setSex(String sex){
+        this.sex = sex;
     }
 }
