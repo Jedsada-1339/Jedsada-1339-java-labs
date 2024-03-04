@@ -113,6 +113,24 @@ public class PlayerFormV14 extends PlayerFormV13 {
             }
         } else if (yesButton.isSelected() == true) {
             File file = fileChooser.getSelectedFile();
+
+            ArrayList<String> cHobbiesList = new ArrayList<>();
+            if (readingCheckbox.isSelected()) {
+                cHobbiesList.add("readingCheckbox");
+            }
+
+            if (browsingCheckbox.isSelected()) {
+                cHobbiesList.add("browsingCheckbox");
+            }
+
+            if (sleepingCheckbox.isSelected()) {
+                cHobbiesList.add("sleepingCheckbox");
+            }
+
+            if (travelingCheckbox.isSelected()) {
+                cHobbiesList.add("travelingCheckbox");
+            }
+
             ArrayList<String> cSportList = new ArrayList<>();
             cSportList.addAll(sportsList.getSelectedValuesList());
 
@@ -122,7 +140,7 @@ public class PlayerFormV14 extends PlayerFormV13 {
             player.setPlayerType((String) typesCombo.getSelectedItem());
             player.setSex(gender);
             player.setSports(cSportList);
-            System.out.println(cSportList);
+            player.setHobbies(cHobbiesList);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
                     oos.writeObject(player);
@@ -180,6 +198,30 @@ public class PlayerFormV14 extends PlayerFormV13 {
                         }
                     }
                     sportsList.setSelectedIndices(selectedIndices);
+
+                    // Set all checkboxes to false initially
+                    readingCheckbox.setSelected(false);
+                    browsingCheckbox.setSelected(false);
+                    sleepingCheckbox.setSelected(false);
+                    travelingCheckbox.setSelected(false);
+
+                    ArrayList<String> aHobbiesList = player.getHobbies();
+                    for (String hobby : aHobbiesList) {
+                        switch (hobby) {
+                            case "readingCheckbox":
+                                readingCheckbox.setSelected(true);
+                                break;
+                            case "browsingCheckbox":
+                                browsingCheckbox.setSelected(true);
+                                break;
+                            case "sleepingCheckbox":
+                                sleepingCheckbox.setSelected(true);
+                                break;
+                            case "travelingCheckbox":
+                                travelingCheckbox.setSelected(true);
+                                break;
+                        }
+                    }
                     // Set other form fields similarly
                     JOptionPane.showMessageDialog(this, "Open file " + file.getPath());
                 } catch (IOException | ClassNotFoundException ex) {
