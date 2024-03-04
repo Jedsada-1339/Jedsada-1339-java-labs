@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -20,6 +21,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.SwingUtilities;
+import javax.swing.text.Position;
 
 public class PlayerFormV14 extends PlayerFormV13 {
     protected JRadioButtonMenuItem yesButton, noButton;
@@ -111,12 +113,16 @@ public class PlayerFormV14 extends PlayerFormV13 {
             }
         } else if (yesButton.isSelected() == true) {
             File file = fileChooser.getSelectedFile();
+            ArrayList<String> cSportList = new ArrayList<>();
+            cSportList.addAll(sportsList.getSelectedValuesList());
 
             Player player = new Player(nameTextField.getText(), nationalityTextField.getText());
             player.setDob(dobTextField.getText());
             player.setYear(experienceSlider.getValue());
             player.setPlayerType((String) typesCombo.getSelectedItem());
             player.setSex(gender);
+            player.setSports(cSportList);
+            System.out.println(cSportList);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
                     oos.writeObject(player);
@@ -154,10 +160,9 @@ public class PlayerFormV14 extends PlayerFormV13 {
                 try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
                     Player player = (Player) ois.readObject();
                     // Fill the form with the attributes of the player object
-                    if(player.getSex().equals("male")){
+                    if (player.getSex().equals("male")) {
                         maleRadioButton.setSelected(true);
-                    }
-                    else{
+                    } else {
                         femaleRadioButton.setSelected(true);
                     }
 
@@ -166,6 +171,15 @@ public class PlayerFormV14 extends PlayerFormV13 {
                     dobTextField.setText(player.getDob());
                     typesCombo.setSelectedItem((Object) player.getPlayerType());
                     experienceSlider.setValue(player.getYear());
+
+                    int[] selectedIndices = new int[player.getSports().size()];
+                    for (int i = 0; i < player.getSports().size(); i++) {
+                        int index = sportsList.getNextMatch(player.getSports().get(i), 0, Position.Bias.Forward);
+                        if (index != -1) {
+                            selectedIndices[i] = index;
+                        }
+                    }
+                    sportsList.setSelectedIndices(selectedIndices);
                     // Set other form fields similarly
                     JOptionPane.showMessageDialog(this, "Open file " + file.getPath());
                 } catch (IOException | ClassNotFoundException ex) {
