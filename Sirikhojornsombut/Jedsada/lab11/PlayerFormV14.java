@@ -91,7 +91,8 @@ public class PlayerFormV14 extends PlayerFormV13 {
 
         setJMenuBar(menuBar);
     }
-
+    
+    // Override method to save player data to a file
     @Override
     public void savePlayerDataToFile() {
         int returnVal = fileChooser.showSaveDialog(this);
@@ -152,10 +153,12 @@ public class PlayerFormV14 extends PlayerFormV13 {
         }
     }
 
+     // Override method to open player data from a file
     @Override
     public void openPlayerDataFromFile() {
         int returnVal = fileChooser.showOpenDialog(this);
 
+        // Check the selected radio button for saving preferences
         if (noButton.isSelected() == true) {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
@@ -176,6 +179,7 @@ public class PlayerFormV14 extends PlayerFormV13 {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+                    JOptionPane.showMessageDialog(this, "Open file " + file.getPath());
                     Player player = (Player) ois.readObject();
                     // Fill the form with the attributes of the player object
                     if (player.getSex().equals("male")) {
@@ -222,8 +226,6 @@ public class PlayerFormV14 extends PlayerFormV13 {
                                 break;
                         }
                     }
-                    // Set other form fields similarly
-                    JOptionPane.showMessageDialog(this, "Open file " + file.getPath());
                 } catch (IOException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
