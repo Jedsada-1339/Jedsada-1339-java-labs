@@ -1,20 +1,21 @@
 package sirikhojornsombut.jedsada.lab3;
 
-
 import java.util.Scanner;
 
 public class NumberGuessingMethodGame {
-        static final int min = 1;
-        static final int max = 20;
-        static int answer;
+
+    static final int min = 1;
+    static final int max = 20;
+    static int answer;
+
     public static void main(String[] args) {
         genAnswer();
-        playGame(); 
+        playGame();
     }
 
     /*ฟังชั่นสร้างตัวคำตอบ */
-    private static void genAnswer(){
-        answer = (min + (int)(Math.random() * ((max - min) + 1)));
+    private static void genAnswer() {
+        answer = (min + (int) (Math.random() * ((max - min) + 1)));
     }
 
     /*ฟังชั่นเล่นเกม */
@@ -29,7 +30,7 @@ public class NumberGuessingMethodGame {
          */
         int numberOfTries = 0;
         final int maxTries = 5;
-        
+
         int check = 0;
 
         /*
@@ -59,15 +60,15 @@ public class NumberGuessingMethodGame {
 
             numberOfTries++;
         }
-        
-        if (check ==0){
-            System.out.println("You have tried " + numberOfTries + " times. "+"You ran out of guesses");
-            System.out.println("The answer is "+ answer);
-        }else{
-            if (numberOfTries == 1){
-            System.out.println("You have tried " + numberOfTries + " time.");
-            } else{
-            System.out.println("You have tried " + numberOfTries + " times.");
+
+        if (check == 0) {
+            System.out.println("You have tried " + numberOfTries + " times. " + "You ran out of guesses");
+            System.out.println("The answer is " + answer);
+        } else {
+            if (numberOfTries == 1) {
+                System.out.println("You have tried " + numberOfTries + " time.");
+            } else {
+                System.out.println("You have tried " + numberOfTries + " times.");
             }
         }
         scanner.close();
