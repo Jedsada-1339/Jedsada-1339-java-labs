@@ -59,10 +59,13 @@ public class RecursiveMethods {
         return count + countOccurrences(arr, target, index + 1);
     }
 
+    // Print array elements in reverse order
     public static void printArrayReverse(int[] arr, int index) {
+        // Base case
         if (index >= arr.length) {
             return;
         }
+        // Recursive call
         printArrayReverse(arr, index + 1);
         System.out.print(arr[index] + " ");
     }
